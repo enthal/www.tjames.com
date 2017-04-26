@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Editotate!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js" charset="utf-8"></script-->
+
+    <style type="text/less">
+      body {
+        font-family: 'Lora', serif;
+        font-size: 15pt;
+      }
+      h1 {
+        font-family: 'Oxygen', serif;
+      }
+      .stock {
+        font-family: 'Oxygen', serif;
+        font-size: 90%;
+        white-space: nowrap;
+        .symbol {
+          font-size: 70%;
+          color: gray;
+          &:before { content: '('; }
+          &:after  { content: ')'; }
+        }
+        svg.sparkline {
+          fill: none;
+          stroke: #000;
+          stroke-width: 0.5px;
+        }
+        .close-price {
+          &:before { content: '$'; }
+        }
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+  </head>
+
+
+  <body>
+    <h1>Editotate.</h1>
+    <div id='editable' contentEditable="true">
+      Loading...
+    </div>
+
+    <script>
+      var substitutors = [
+        // colors
+        (function () {
+          var colorsByColor = {
+            red: 'vermillion',
+            green: 'chartreuse',
+            blue: 'azure'
+          };
+
+          return {
+            isMatchWord: function(word) {
+              return !!colorsByColor[word];
+            },
+            substitute: function(word) {
+              return "<span contenteditable='false' style='color:"+word+"'>"+colorsByColor[word]+"</span>";
+            }
+          };
+        })(),
+
+        // stocks
+        (function () {
+          var stocksByTicker = {};
+          d3.csv("http://www.tjames.com/quandl/WIKI_tickers.csv")
+            .get(function(error, rows) {
+              if (error) { throw error; }
+              var quandlCodeRegex = /WIKI\/([A-Z]+)/;
+              var suffixRegex = /(,? *(inc\.?( ?\(\w+\))?| incorporated| corp(oration|\.)?))$/gi;
+              for (var i in rows) {
+                var stock = rows[i];
+                var ticker = quandlCodeRegex.exec(stock['quandl code'])[1];
+                stocksByTicker[ticker] = stock;
+                stock.name = stock.name.replace(suffixRegex, "");
+                // console.log(ticker, stock.name);
+              }
+              delete stocksByTicker.A;  // sorry Agilent Technologies, Inc.
+              delete stocksByTicker.I;  // sorry Intelsat S.A.
+            });
+
+          return {
+            isMatchWord: function(word) {
+              return !!stocksByTicker[word];
+            },
+            substitute: function(word, save) {
+              var stock = stocksByTicker[word];
+              var startDate = new Date;
+              startDate.setFullYear(startDate.getFullYear() - 1);
+              startDate = startDate.toISOString().slice(0,10);
+              d3.csv("https://www.quandl.com/api/v1/datasets/WIKI/"+word+".csv?rows=1000&column=11&sort_order=asc&trim_start="+startDate)
+                .get(function(error, rows) {
+                  if (error) { throw error; }
+                  console.log(rows);
+
+                  var finalClosePrice = rows[rows.length-1]['Adj. Close'];
+                  for (var i in rows) {
+                    var row = rows[i];
+                    row.date = new Date(row.Date);
+                    row.close = +row['Adj. Close'];
+                  }
+
+                  var stockSel = d3.selectAll(".stock.ticker-"+word);
+
+                  // sparkline!
+                  var width = 100;
+                  var height = 25;
+                  var x = d3.scale.linear().range([0, width]);
+                  var y = d3.scale.linear().range([height, 0]);
+                  x.domain(d3.extent(rows, function(d) { return d.date;  }));
+                  y.domain(d3.extent(rows, function(d) { return d.close; }));
+                  stockSel.selectAll('svg.sparkline path').remove();
+                  stockSel.selectAll('svg.sparkline')
+                    .attr('width', width)
+                    .attr('height', height)
+                    .append('path')
+                    .attr('d', d3.svg.line()
+                      .interpolate('basis')
+                      .x(function(d) { return x(d.date); })
+                      .y(function(d) { return y(d.close); })
+                      (rows) );
+
+
+                  // final adjusted close price
+                  stockSel.selectAll(".close-price").text(finalClosePrice);
+
+                  save();
+                });
+              return (
+                "<span contenteditable='false' class='stock ticker-"+word+"'>"
+                +stock.name
+                +" <span class='symbol'>"+word+"</span>"
+                +" <svg class='sparkline' width=0 height=0></svg>"
+                +" <span class='close-price'></span>"
+                +"</span>" );
+            }
+          };
+        })()
+      ];
+
+      var editable = document.getElementById('editable');
+
+      editable.addEventListener('input', function () {  // only on WebKit (TODO)
+        var that = this;
+        function save() {
+          localStorage.setItem('contenteditable', that.innerHTML);
+          localStorage.setItem('count', +(localStorage.getItem('count')||0) + 1);
+        }
+        save();
+        var sel = window.getSelection();
+
+        var node = sel.focusNode;
+        var r = /\b(\w+)(\W)$/ .exec( node.nodeValue.substring(0, sel.focusOffset) );
+        if (!r) { return; }
+
+        var word = r[1], terminal = r[2];
+        console.log(word, '['+terminal+']');
+        for (var i in substitutors) {
+          var substitutor = substitutors[i];
+          if (substitutor.isMatchWord(word)) {
+            console.log(sel);
+            var origOffset = sel.focusOffset;
+            var nv = node.nodeValue;
+            var parentElement = node.parentElement;
+
+            var insertBeforeFocusNode = function(newNode) {
+              parentElement.insertBefore(newNode, node);
+            }
+            var prefixNode = document.createTextNode(nv.substring(0, sel.focusOffset - 1 - word.length));
+            insertBeforeFocusNode(prefixNode);
+
+            var tempElem = document.createElement("span");
+            insertBeforeFocusNode(tempElem);
+
+            var suffixNode = document.createTextNode(nv.substring(sel.focusOffset - 1));
+            insertBeforeFocusNode(suffixNode);
+
+            parentElement.removeChild(node);
+
+            var newHTML = substitutor.substitute(word, save);
+            tempElem.insertAdjacentHTML('beforebegin', newHTML);
+            parentElement.removeChild(tempElem);
+            save();
+
+            // move caret back to expected location
+            var range = document.createRange();
+            range.setStart(suffixNode, 1);  // just after terminal character: where we started, from user perspective
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+          }
+        }
+      });
+
+      editable.innerHTML = localStorage.getItem('contenteditable') || "You can edit this text!";
+
+
+    </script>
+  </body>
+</html>
