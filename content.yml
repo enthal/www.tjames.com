@@ -1,0 +1,9 @@
+- $t: page
+  $path: index.html
+  title: hello world
+  body: |-
+      # Here is some content
+
+      I have always **loved** fresh-brewed content!
+      - and this
+      - is why!
