@@ -8,6 +8,7 @@
       - and this
       - is why!
 
+
 - $t: page
   $path: projects.html
   title: Representative Projects
@@ -21,3 +22,79 @@
           text: |-
             I owned the projects listed here
             [for Change.org, between February 2012 and May 2015](https://www.linkedin.com/in/timjamestim).
+
+        - $t: project
+          title: |-
+            **Reliable, transparent** lead delivery platform with **multi-CRM integration** –
+            _principal engineer, team lead, architect, lead coder_
+          problem: |-
+            Legacy system frequently failed, and failed silently, to deliver vital leads to customers&mdash;with 80% of company revenue in lead generation. &nbsp;
+            Leads sometimes double-delivered or double billed. &nbsp;
+            Cost prohibitive to maintain/evolve: team couldn&rsquo;t add features customers demanded. &nbsp;
+            Daily batch delivery meant customers waited while their conversion rates fell. &nbsp;
+            Integration points include multiple CRM types, client CRM connections, internal Salesforce for billing, CassandraDB, and external data services, any of which can fail at any time. &nbsp;
+            Great web engineers started unsuited to systems data challenge. &nbsp;Professional client services team wrapped around axle of legacy tool.&nbsp;
+          solution: |-
+            Took project and team in hand, analyzing business and technical problems with internal Client Services staff.&nbsp;
+            Recognizing the core problem as one of reliability and transparency, not scale, opted for Postgres DB on AWS RDS: eventual consistency was no solution here. &nbsp;Used consistent DB to replace flaky daily batches with once-and-only-once streaming/&ldquo;realtime&rdquo; delivery, reporting-to-billing, and web dashboard&mdash;across multiple ephemeral node.js app/worker servers.&nbsp;
+            Used functional-dependency-injection in server for TDD and control of dependency/complexity.&nbsp;
+            Used integration TDD for easy, repeatable testing against the full set of real services and CRM types.&nbsp;
+            AWS AutoScaling and ephemeral, stateless EC2 nodes (multi-AZ) behind ELB.&nbsp;
+            Architected system and built team culture to discern transient errors at integration points (to retry) from intransient, data-specific errors (to filter or alert).&nbsp;
+            Realtime web dashboard and control with Angular.js, json/WebSockets, postgres DB trigger-on-delta to publish/subscribe channel, twitter Bootstrap/Less, semantic-CSS, TDD, gulp.&nbsp;
+            Guided and mentored team to competence in this unfamiliar systems world, including integration know-how and taking total ownership of devops.&nbsp;
+          results: |-
+            Thrilled our customers with realtime delivery and rock-solid reliability, with immediate sales response (realtime increases customer ROI). &nbsp;
+            Saved Client Services staff time and headache handling. &nbsp;
+            Project team continues to confidently innovate&mdash;and no longer wastes time fixing legacy system.&nbsp;
+
+        - $t: project
+          title: |-
+            **Machine learning-driven recommender** system for email delivery –
+            _initiator and team lead_
+          problem: |-
+            Change.org&rsquo;s manual email targeting tools and processes were delivering significantly sub-optimal results and thwarted scaling user base, content base (petitions), professional campaign staff, and international expansion. &nbsp;
+            These manually targeted mass emails drove 80% of traffic and thus revenue. &nbsp;
+            The company had great things to get started, but was rapidly outgrowing them: &ldquo;what gets us here won&rsquo;t get us there.&rdquo; &nbsp;
+            The dedicated campaign staff needed something radically better.
+          solution: |-
+            I started the change.org &ldquo;Data/science&rdquo; team with this project as first mission. &nbsp;
+            We empirically discovered which data sets, data processes, technologies, and machine learning algorithms garnered best results&mdash;and productized the winners into a system used daily by US and international staff to reach an email audience of 30+ million users. &nbsp;
+            Tech: AWS distributed and ephemeral compute solution including MapReduce with Cascading on AWS EMR; on demand machine learning (for laboratory and production) on scaled-to-job-size EC2 clusters coordinated with AWS Simple WorkFlow (SWF); dynamic results visualization (confidence curves) and reach/impact tradeoff control web tool using D3. &nbsp;
+          results: |-
+            30% immediate conversion rate improvement; dramatic campaign staff efficiency and focus improvements;
+            staff in total control over reach/impact tradeoffs.
+
+        - $t: project
+          title: |-
+            Move analytics to Amazon **Redshift with ETL** –
+            _initiator and team lead_
+          problem: |-
+            Emergent performance collapse for heavy analytics queries on legacy disk-based MySQL slave/replica of huge production DB.
+          solution: |-
+            Recognizing the company&rsquo;s increasing dependence on a vital and limited resource, I worked with management to identify this key opportunity to avoid breakdown. &nbsp;
+            Selected Amazon Redshift to provide us affordable/easy/proven scalability, true SQL for broadest use, and advanced analytics features like window functions. &nbsp;
+            Oversaw development and architected Extract-Transform-Load (ETL) pipeline from production MySQL. &nbsp;
+            Led team to embrace fast-cycle empiricism, owning devops in cloud, making tools that Just Work, and Test Driven data processing development.
+          results: |-
+            Solution has scaled happily with both dataset and query load;
+            allowed development of increasingly sophisticated and diverse tools and analytics visualizations;
+            freed staffers and managers across the company to meet their own needs using direct SQL queries without taxing precious advanced analyst resources.
+
+        - $t: project
+          title: |-
+            High-throughput **fraud analysis tool** &ndash
+            _primary engineer, inception to full production_
+          problem: |-
+            Rise in signature fraud swamping engineering&rsquo;s fraud review process and tools, while requiring skilled engineers to perform this chore, leading to large and growing productivity and morale cost in engineering team. &nbsp;
+            Uncaught fraud at change.org can explode in the press as brand damage.
+          solution: |-
+            Created fraud analysis tool using Redshift, Redis, node.js, angular.js, HTML5. &nbsp;
+            Recognized unique challenge of human-driven fraud analysis: visual pattern matching over many fields for thousands of items/hour, applying a series of heuristics. &nbsp;
+            Used automatic precomputation and redis caching of heavy &ldquo;first pass&rdquo; Redshift query results together with zero-wait UX design to effect tightest possible scan-decide-act cycle for users. &nbsp;
+            Designed high-information-density UI for visual scanning (C.f. Edward Tufte) and controlled workflow. &nbsp;
+            That puts users in the flow state, the only way to get both efficient user performance and sufficient filtering quality. &nbsp;
+          results: |-
+            Allows non-engineers to perform this work;
+            10-20 engineer hours/week freed immediately (to much rejoicing), growing 2-4x over following year;
+            allows international staff to deal with non-US fraud.

@@ -19,7 +19,17 @@ h1,h2,h3 {
   font-family: 'Oxygen', sans-serif;
 }
 
-.c0 {
+.projects {
+  max-width: 500pt;
+  padding: 7.2pt 21.6pt 7.2pt 21.6pt;
+  /*margin-top: 2em;*/
+}
+
+.project {
+  margin-bottom: 1.2em;
+}
+
+.project-section-label {
   font-family: 'Oxygen', sans-serif;
   font-weight: bold;
   color: #777;
@@ -29,19 +39,12 @@ h1,h2,h3 {
   display: inline-block;
 }
 
-.proj-head {
+.project-head {
+  font-size: 110%;
+}
+.project-head .project-section-label {
   color: #F28730;
   font-size: 130%;
-}
-
-.projects {
-  max-width: 500pt;
-  padding: 7.2pt 21.6pt 7.2pt 21.6pt;
-  /*margin-top: 2em;*/
-}
-
-.project {
-  margin-bottom: 1.2em;
 }
 
 .header {
