@@ -4,6 +4,13 @@
   body: |-
       # Here is some content
 
-      I have always **loved** fresh-brewed content!
+      I have always **loved** fresh-brewed [content](./projects.html)!
       - and this
       - is why!
+
+- $t: page
+  $path: projects.html
+  title: Representative Projects
+  body:
+    - $t: page-header
+      title: Representative Projects   # TODO: DRY!
