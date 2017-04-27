@@ -4,13 +4,17 @@
   body: |-
       # Here is some content
 
-      I have always **loved** fresh-brewed [content](./projects.html)!
+      I have always **loved** fresh-brewed [projects](./projects.html)!
       - and this
       - is why!
 
 
-- $t: page
+- $t: redirect    # TODO automate
   $path: projects.html
+  toUrl: /projects/
+
+- $t: page
+  $path: projects/index.html
   title: Representative Projects
   body:
     - $t: page-header
