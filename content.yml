@@ -18,8 +18,9 @@
     - $t: div
       classStr: projects
       content:
-        - $t: intro
-          text: |-
+        - $t: div
+          classStr: intro
+          content: |-
             I owned the projects listed here
             [for Change.org, between February 2012 and May 2015](https://www.linkedin.com/in/timjamestim).
 
