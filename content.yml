@@ -1,12 +1,8 @@
 - $t: page
   $path: index.html
-  title: hello world
-  body: |-
-      # Here is some content
-
-      I have always **loved** fresh-brewed [projects](./projects.html)!
-      - and this
-      - is why!
+  title: Making software valuable...
+  body:
+    - $t: home
 
 
 - $t: redirect    # TODO automate
@@ -87,7 +83,7 @@
 
         - $t: project
           title: |-
-            High-throughput **fraud analysis tool** &ndash
+            High-throughput **fraud analysis tool** –
             _primary engineer, inception to full production_
           problem: |-
             Rise in signature fraud swamping engineering&rsquo;s fraud review process and tools, while requiring skilled engineers to perform this chore, leading to large and growing productivity and morale cost in engineering team. &nbsp;

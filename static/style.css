@@ -1,23 +1,106 @@
 
 body {
+  background-color: white;
   margin: 0;
   font-family: 'Lora', serif;
   color: #000000;
   font-size: 12pt;
 }
-
-/*.c1 {
-  widows: 2;
-  orphans: 2;
-  direction: ltr
-}*/
-
 p {
   margin: 0;
 }
 h1,h2,h3 {
   font-family: 'Oxygen', sans-serif;
 }
+a:link    { color: #888; }
+a:visited { color: #888; }
+/*
+.c1 {
+  widows: 2;
+  orphans: 2;
+  direction: ltr
+}
+*/
+
+
+#home {
+  font-family: 'Oxygen', sans-serif;
+}
+
+
+#home #header {
+  letter-spacing: 0.10em;
+  color: #CCC;
+}
+#home #header a {
+  display: inline-block;
+  border-right: 1px solid #DDD;
+  padding: 0.4em 2em
+}
+#home #header a:last-child {
+  border-right: 0;
+}
+#home #header:hover a:link    { color: #333; }
+#home #header:hover a:visited { color: #333; }
+#home a:link  { text-decoration: none; }
+#home a:hover { text-decoration: underline; }
+
+#distance {
+  width: 1px;
+  height: 30%;
+  float: left;
+}
+
+#container {
+  margin: 0 auto;
+  position: relative;
+  /* puts container in front of distance */
+
+  text-align: left;
+  width: 40em;
+  clear: left;
+}
+
+#container div {
+  float: center;
+  width: 17em;
+}
+
+/* Can't use % widths, due to the needed parent widths */
+@media screen {
+  img#logo-home { width:617px; }
+}
+@media screen and (max-width: 617px) {
+  img#logo-home { width:400px; }
+}
+@media screen and (max-width: 400px) {
+  img#logo-home { width:320px; }
+}
+
+img#logo-home {
+  opacity: 0;
+  -webkit-transform: scale(1.1, 1) translateY(15px);
+     -moz-transform: scale(1.1, 1) translateY(15px);
+          transform: scale(1.1, 1) translateY(15px);
+  -webkit-transition: all 0.5s ;
+     -moz-transition: all 0.5s ;
+      -ms-transition: all 0.5s ;
+       -o-transition: all 0.5s ;
+          transition: all 0.5s ;
+}
+img#logo-home.shown {
+  opacity: 1;
+  -webkit-transform: scale(0.98) translateY(0);
+     -moz-transform: scale(0.98) translateY(0);
+          transform: scale(0.98) translateY(0);
+}
+img#logo-home:hover {
+  -webkit-transform: scale(1) translateY(-3px);
+     -moz-transform: scale(1) translateY(-3px);
+          transform: scale(1) translateY(-3px);
+}
+
+
 
 .projects {
   max-width: 500pt;
@@ -25,11 +108,11 @@ h1,h2,h3 {
   /*margin-top: 2em;*/
 }
 
-.project {
+.projects .project {
   margin-bottom: 1.2em;
 }
 
-.project-section-label {
+.projects .project-section-label {
   font-family: 'Oxygen', sans-serif;
   font-weight: bold;
   color: #777;
@@ -39,15 +122,15 @@ h1,h2,h3 {
   display: inline-block;
 }
 
-.project-head {
+.projects .project-head {
   font-size: 110%;
 }
-.project-head .project-section-label {
+.projects .project-head .project-section-label {
   color: #F28730;
   font-size: 130%;
 }
 
-.header {
+.page-header {
   /*position: fixed;*/
   width: 100%;
   border-bottom: 1px solid #eee;
@@ -55,13 +138,13 @@ h1,h2,h3 {
   padding: 0.5em;
   padding-left: 0.5em;
 }
-.header img {
+.page-header img {
   /*width:  114px;*/
   /*height:  36px;*/
   width:  171px;
   height:  54px;
 }
-.header span {
+.page-header span {
   display: inline-block;
   vertical-align: 70%;
   padding-left: 2em;
@@ -71,7 +154,7 @@ h1,h2,h3 {
   font-size: 150%;
 }
 
-.intro {
+.projects .intro {
   font-style: italic;
   display: inline-block;
   padding-bottom: 1em;
