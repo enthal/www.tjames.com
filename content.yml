@@ -12,16 +12,43 @@
 - $t: page
   $path: projects/index.html
   title: Representative Projects
+
   body:
     - $t: page-header
       title: Representative Projects   # TODO: DRY!
+
     - $t: div
       classStr: projects
       content:
         - $t: div
           classStr: intro
           content: |-
-            I owned the projects listed here
+            I owned this project
+            [for CapitalOne, between August 2015 and November 2016](https://www.linkedin.com/in/timjamestim).
+
+        - $t: project
+          title: |-
+            Streamlined **platform for enterprise-wide static-website generation**
+          problem: |-
+            Legacy system provided cumbersome workflow, difficult cross-team content integration, and limited presentation control. &nbsp;
+            Production deployments were risky and on a slow cycle. &nbsp;
+            This sharply limited the ability of teams across this Fortune 500 enterprise to engage on the web with potential new customers. &nbsp;
+            Building content at this scale in the face of needed legal and regulatory guarantees particular to a lending institution made off the shelf solutions a poor fit. &nbsp;
+            Newly acquired team of sharp web engineers weren't ready to tackle architecting a key platform with so much on the line. &nbsp;
+          solution: |-
+            We created the Andromeda Platform, delivering fast-release, easy content creation, putting engineers and content editors in control. &nbsp;
+            The team and I passionately provided internal customers with platform products that work together, out of the box, with easy and safe customization. &nbsp;
+            We worked with numerous teams across the business units throughout the engagement to both progressively distill their real needs and assist their effective adoption of the platform.  &nbsp;
+            The resulting product combined a SaaS "headless" CMS with templating running locally (for engineers) or live in the cloud (for content editors), using either simple EJS templates or Angular2 components to bridge to dynamic content, with final push-button per-team deployment to AWS S3 (and CloudFront), replicated cross-region. &nbsp;
+            Optimized page transition times by 5-10x across all teams. &nbsp;
+            Tech: Node.js, Angular.js, HTML5/CSS3, AWS (EC2, S3, CloudFront, CloudFormation, AutoScaling, ELB, CloudWatch, IAM policies), Docker. &nbsp;
+          results: |-
+            Teams were freed to drive business on the web, to customize and modify the platform as they needed, while still deploying to the capitalone.com website. &nbsp;
+
+        - $t: div
+          classStr: intro
+          content: |-
+            I owned the following projects
             [for Change.org, between February 2012 and May 2015](https://www.linkedin.com/in/timjamestim).
 
         - $t: project
