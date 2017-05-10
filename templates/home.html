@@ -1,8 +1,10 @@
 <div id="home">
-  <div id="header">
-    <a     class='item' href="https://www.linkedin.com/in/timjamestim">LinkedIn Profile
-    </a><a class='item' href="projects/">Projects</a>
-  </div>
+  <ul id="header-menu">
+    <% _.each(menuItems, (item)=>{ %>
+      <li><a href="<%- item.url %>"><%- item.name %></a></li>
+    <% }) %>
+  </ul>
+
   <div id="distance"></div>
   <div id="container">
     <div>

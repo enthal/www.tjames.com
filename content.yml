@@ -3,9 +3,14 @@
   title: Making software valuable...
   body:
     - $t: home
+      menuItems:
+        - name: LinkedIn Profile
+          url: https://www.linkedin.com/in/timjamestim
+        - name: Projects
+          url: /projects/
 
 
-- $t: redirect    # TODO automate
+- $t: redirect    # TODO automate?
   $path: projects.html
   toUrl: /projects/
 

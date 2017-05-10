@@ -28,22 +28,24 @@ a:visited { color: #888; }
 }
 
 
-#home #header {
+#home #header-menu {
   letter-spacing: 0.10em;
   color: #CCC;
 }
-#home #header a {
+#home #header-menu li {
   display: inline-block;
+  list-style-type: none;
   border-right: 1px solid #DDD;
   padding: 0.4em 2em
 }
-#home #header a:last-child {
+#home #header-menu li:last-child {
   border-right: 0;
 }
-#home #header:hover a:link    { color: #333; }
-#home #header:hover a:visited { color: #333; }
-#home a:link  { text-decoration: none; }
-#home a:hover { text-decoration: underline; }
+#home #header-menu li:hover a:link    { color: #333; }
+#home #header-menu li:hover a:visited { color: #333; }
+
+#home #header-menu li a:link { text-decoration: none; }
+#home #header-menu li:hover  { text-decoration: underline; }
 
 #distance {
   width: 1px;
