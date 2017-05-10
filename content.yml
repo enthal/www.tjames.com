@@ -43,7 +43,7 @@
             Optimized page transition times by 5-10x across all teams. &nbsp;
             Tech: Node.js, Angular.js, HTML5/CSS3, AWS (EC2, S3, CloudFront, CloudFormation, AutoScaling, ELB, CloudWatch, IAM policies), Docker. &nbsp;
           results: |-
-            Teams were freed to drive business on the web, to customize and modify the platform as they needed, while still deploying to the capitalone.com website. &nbsp;
+            Teams were freed to drive business on the web, to customize and modify the platform as they needed, while still deploying safely to the capitalone.com website. &nbsp;
 
         - $t: div
           classStr: intro
