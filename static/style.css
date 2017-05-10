@@ -104,10 +104,14 @@ img#logo-home:hover {
 
 
 
-.projects {
+.inset-content {
   max-width: 500pt;
   padding: 7.2pt 21.6pt 7.2pt 21.6pt;
   /*margin-top: 2em;*/
+}
+
+.about-content p {
+  margin-bottom: 1.2em;
 }
 
 .projects .project {
