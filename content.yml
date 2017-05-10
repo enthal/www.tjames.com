@@ -1,13 +1,27 @@
 - $t: page
   $path: index.html
-  title: Making software valuable...
+  title: Freelance Principal Software Engineer
   body:
     - $t: home
       menuItems:
-        - name: LinkedIn Profile
-          url: https://www.linkedin.com/in/timjamestim
+        - name: About
+          url: /about/
         - name: Projects
           url: /projects/
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/timjamestim
+
+
+- $t: page
+  $path: about/index.html
+  title: About Me
+  body:
+    - $t: page-header
+      title: What I do  # TODO: DRY!
+    - $t: div
+      classStr: projects
+      content: |-
+        Hi there!
 
 
 - $t: redirect    # TODO automate?
