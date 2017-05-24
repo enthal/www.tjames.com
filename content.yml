@@ -1,11 +1,52 @@
 - $t: page
   $path: index.html
-  title: Making software valuable...
+  title: Freelance Principal Software Engineer
   body:
     - $t: home
+      menuItems:
+        - name: About
+          url: /about/
+        - name: Projects
+          url: /projects/
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/timjamestim
 
 
-- $t: redirect    # TODO automate
+- $t: page
+  $path: about/index.html
+  title: About Me
+  body:
+    - $t: page-header
+      title: What I do
+    - $t: div
+      classStr: about-content inset-content
+      content: |-
+        Hello!  &nbsp;&nbsp;&nbsp;&nbsp;I'm Tim James.
+
+        For nearly 20 years, I've worked with teams and solo delivering high-impact full-stack applications and back-end systems as <span style='color:#d38b20'>systems architect, full-stack software engineer, product analyst, team lead, and coder.</span>
+
+        _Resilient distributed systems, sophisticated real-time web apps, complex multi-party integrations.
+        Tools and products tailored to the subtle nuances of stakeholder needs.
+        UIs that powerfully connect users to intricate and ever-changing spaces of data—and to each other.
+        Systems with exactly the right properties and tradeoffs—across throughput, latency, resilience, security, scaling, and more.
+        Leading and mentoring teams to excellence._
+
+        In short, the right tool for the job, every time.
+
+        It’s not magic: I work closely with you, your engineers, product people, users, customers, and other stakeholders over the lifetime of an engagement to get to the essence of what _matters_—and choose, adapt, and apply the right technologies to make that real.
+        I actively manage schedule risk to give you the best sense possible throughout the project of what to expect, and where attention is most needed.
+        And I use proven methods—from Test Driven Development to Containerization—to ensure deep-quality code and systems.
+
+        It doesn’t stop there.
+        If you’ve got a dev team, I can provide them the guidance and mentorship that leads to mastery of the right mindset and techniques for the project.
+        This can be a watershed experience in their own professional development—the kind of thing that forges team bonds and cements their loyalty to your company.
+        This investment in their growth can help make your company a truly great place to work, and that’s what it takes to attract and retain top talent.
+
+        If you’re ready for this for your business, your product, your organization, then let’s start the conversation now, today.
+        I look forward to hearing from you.
+
+
+- $t: redirect    # TODO automate?
   $path: projects.html
   toUrl: /projects/
 
@@ -18,7 +59,7 @@
       title: Representative Projects   # TODO: DRY!
 
     - $t: div
-      classStr: projects
+      classStr: projects inset-content
       content:
         - $t: div
           classStr: intro
