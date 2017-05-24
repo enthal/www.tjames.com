@@ -116,6 +116,7 @@ img#logo-home:hover {
 
 .projects .project {
   margin-bottom: 1.2em;
+  margin-left: 1em;
 }
 
 .projects .project-section-label {
@@ -161,9 +162,11 @@ img#logo-home:hover {
 }
 
 .projects .intro {
+  font-family: 'Oxygen', sans-serif;
   font-style: italic;
   display: inline-block;
-  padding-bottom: 1em;
+  padding-top: 1em;
+  padding-bottom: 0.2em;
   color: #777;
   font-size: 90%;
 }
