@@ -23,7 +23,7 @@
       content: |-
         Hello!  &nbsp;&nbsp;&nbsp;&nbsp;I'm Tim James.
 
-        For nearly 20 years, I've worked with teams and solo delivering impactful full-stack applications and back-end systems as systems architect, full-stack software engineer, product analyst, team lead, and coder.
+        For nearly 20 years, I've worked with teams and solo delivering high-impact full-stack applications and back-end systems as <span style='color:#d38b20'>systems architect, full-stack software engineer, product analyst, team lead, and coder.</span>
 
         _Resilient distributed systems, sophisticated real-time web apps, complex multi-party integrations.
         Tools and products tailored to the subtle nuances of stakeholder needs.
@@ -31,10 +31,10 @@
         Systems with exactly the right properties and tradeoffs—across throughput, latency, resilience, security, scaling, and more.
         Leading and mentoring teams to excellence._
 
-        In short, _the right tool for the job_, every time.
+        In short, the right tool for the job, every time.
 
         It’s not magic: I work closely with you, your engineers, product people, users, customers, and other stakeholders over the lifetime of an engagement to get to the essence of what _matters_—and choose, adapt, and apply the right technologies to make that real.
-        I actively manage schedule risk to give you the best sense possible at any point in the project of where attention is most needed.
+        I actively manage schedule risk to give you the best sense possible throughout the project of what to expect, and where attention is most needed.
         And I use proven methods—from Test Driven Development to Containerization—to ensure deep-quality code and systems.
 
         It doesn’t stop there.
