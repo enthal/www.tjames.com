@@ -13,6 +13,16 @@
 
 
 - $t: page
+  $path: offering/index.html
+  title: I offer.
+  body:
+    - $t: div
+      classStr: about-content inset-content
+      content: |-
+        Hello!  &nbsp;&nbsp;&nbsp;&nbsp;I'm Tim James.
+
+
+- $t: page
   $path: about/index.html
   title: About Me
   body:
