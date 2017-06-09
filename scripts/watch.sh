@@ -1,12 +1,23 @@
+gulp rimraf
+
 nodemon \
- -w ../temple/index.js  \
  -e js,yml,yaml,html,css \
- -w static/ \
- -w style/ \
  -w content.yml \
  -w templates/  \
  -w gulpfile.js \
- -x gulp ''
+ -x gulp template &
+
+nodemon \
+ -e js,yml,yaml,html,css \
+ -w style/ \
+ -w gulpfile.js \
+ -x gulp css &
+
+nodemon \
+ -e js,yml,yaml,html,css \
+ -w static/ \
+ -w gulpfile.js \
+ -x gulp static &
 
  # ../temple/index.js \
  #   -c content.yml \

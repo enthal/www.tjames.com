@@ -19,7 +19,17 @@
     - $t: div
       classStr: about-content inset-content
       content: |-
-        Hello!  &nbsp;&nbsp;&nbsp;&nbsp;I'm Tim James.
+        <img id='logo-home' src="/TimothyJames-logo.png" />
+
+        ## I make sophisticated full-stack, web, and back-end JavaScript applications... _and lead teams to do the same_.
+
+        - **Applications** • Full-stack, scalable Applications on React, Node.js, AWS Cloud.  The right application to take your business further.
+        - **Leadership** • Great teams sometimes need help to meet systems challenges.  I can lead and mentor your people to mastery in your app.
+
+        # Applications
+        - Full-stack web applications providing powerful, live access to complex data—and sophisticated user collaboration.  Tapping ReactJS, AngularJS, NodeJS, etc.
+        - Robust, auto-scaling back-end systems, with _n_-way integrations and the right storage solutions, in the AWS cloud.
+
 
 
 - $t: page
