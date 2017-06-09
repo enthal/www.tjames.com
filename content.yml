@@ -19,18 +19,21 @@
     - $t: div
       classStr: about-content inset-content
       content: |-
-        <img id='logo-home' src="/TimothyJames-logo.png" />
+        <div><img id='logo-home' src="/TimothyJames-logo.png" /></div>
 
-        ## I make sophisticated full-stack, web, and back-end JavaScript applications... _and lead teams to do the same_.
+        <br /><br />
+        ## I make sophisticated full-stack, web, and back-end JavaScript applications... _and lead teams to do the same_.  Twenty years experience.
+        <br /><br />
 
         - **Applications** • Full-stack, scalable Applications on React, Node.js, AWS Cloud.  The right application to take your business further.
         - **Leadership** • Great teams sometimes need help to meet systems challenges.  I can lead and mentor your people to mastery in your app.
 
         # Applications
         - Resilient distributed systems, sophisticated real-time web apps, complex multi-party integrations.
-        - UIs that powerfully connect users to intricate and ever-changing spaces of data—and to each other.
+        - UIs that powerfully connect users in real-time to intricate and ever-changing spaces of data—and to each other.
         - Systems with exactly the right properties and tradeoffs—across throughput, latency, resilience, security, scaling, and more.
         - Tools and products tailored to the subtle nuances of stakeholder needs.
+        - React, AngularJS, Node.js, AWS Cloud, ...
 
         # Technical Leadership
         - If you’ve got a dev team, I can provide them the guidance and mentorship that leads to mastery of the right mindset and techniques for the project.
