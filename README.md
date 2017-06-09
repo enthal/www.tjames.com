@@ -1,6 +1,10 @@
 # tjames.com content and templates
 
-`node ../temple/index.js -c content.yml -t templates/ -s static/ -o out/`
+```
+yarn install               # or: npm install
+yarn global add gulp-cli   # or: npm install -g gulp-cli
+gulp
+```
 
 For static generation by [temple](https://github.com/enthal/temple), which I made.
 
