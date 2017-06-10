@@ -24,3 +24,5 @@ nodemon \
  #   -t templates/ \
  #   -s static/ \
  #   -o out/
+
+wait
