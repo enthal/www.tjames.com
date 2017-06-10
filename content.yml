@@ -20,6 +20,7 @@
       classStr: centered-glory
       content:
         - |-
+          <br /><br />
           <div><img id='logo-home' src="/TimothyJames-logo.png" /></div>
 
           <br /><br />
