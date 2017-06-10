@@ -1,0 +1,5 @@
+<div class="lostgrid lostgrid-columns-<%- Math.min(8,columns.length) %> <%- classStr %>">
+  <% _.each(columns, (column) => {%>
+    <div><%= $.recurse(column) %></div>
+  <% }) %>
+</div>

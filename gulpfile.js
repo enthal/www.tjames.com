@@ -19,6 +19,7 @@ gulp.task('css', () => {
     .pipe( postcss([
       require('precss'),
       require('autoprefixer'),
+      require('lost'),
       ]) )
     .pipe( sourcemaps.write('.') )
     .pipe( gulp.dest('out/') );
