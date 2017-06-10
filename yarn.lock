@@ -1242,6 +1242,12 @@ postcss-mixins@^2.1.0:
     postcss "^5.0.10"
     postcss-simple-vars "^1.0.1"
 
+postcss-nested-vars@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/postcss-nested-vars/-/postcss-nested-vars-0.0.2.tgz#c215ee070ae19d6b371f40a4f1e24f490d769313"
+  dependencies:
+    postcss "^5.0.5"
+
 postcss-nested@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/postcss-nested/-/postcss-nested-1.0.1.tgz#91f28f4e6e23d567241ac154558a0cfab4cc0d8f"

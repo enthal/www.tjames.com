@@ -6,6 +6,7 @@
     "gulp-sequence": "^0.4.6",
     "gulp-sourcemaps": "^2.6.0",
     "lost": "^8.0.0",
+    "postcss-nested-vars": "^0.0.2",
     "precss": "^1.4.0",
     "rimraf": "^2.6.1",
     "temple-cms": "file:../temple/"

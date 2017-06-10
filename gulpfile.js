@@ -20,6 +20,7 @@ gulp.task('css', () => {
       require('precss'),
       require('autoprefixer'),
       require('lost'),
+      require('postcss-nested-vars'),
       ]) )
     .pipe( sourcemaps.write('.') )
     .pipe( gulp.dest('out/') );
