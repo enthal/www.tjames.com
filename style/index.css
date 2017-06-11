@@ -251,3 +251,6 @@ img#logo-small {
 .lostgrid-columns-4 > * { lost-column: 1/4; }
 .lostgrid-columns-5 > * { lost-column: 1/5; }
 .lostgrid-columns-6 > * { lost-column: 1/6; }
+@media screen and (max-width: 400px) {
+  .lostgrid > * { lost-column: 1/1; }
+}
