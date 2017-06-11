@@ -90,11 +90,11 @@ img#logo-big {
   @media screen {
     & { width:617px; }
   }
-  @media screen and (max-width: 400px) {
-    & { width:320px; }
-  }
   @media screen and (max-width: 617px) {
     & { width:400px; }
+  }
+  @media screen and (max-width: 400px) {
+    & { width:320px; }
   }
 }
 
