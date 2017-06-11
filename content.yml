@@ -19,10 +19,10 @@
     - $t: div
       classStr: centered-glory
       content:
-        - |-
-          <br /><br />
-          <div><img id='logo-home' src="/TimothyJames-logo.png" /></div>
+        - $t: logo-big
+          href: '/'
 
+        - |-
           <br /><br />
           ## I make sophisticated full-stack, web, and back-end JavaScript applications... _and lead teams to do the same_.  Twenty years experience.
           <br /><br />

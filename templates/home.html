@@ -7,16 +7,10 @@
 
   <div id="distance"></div>
   <div id="container">
-    <div>
-      <a style="text-align:center" href="projects/">
-        <img id='logo-home' src="TimothyJames-logo.png" />
-      </a>
-    </div>
+    <%=
+      $.recurse({
+        $t: 'logo-big',
+        href: "projects",
+      }) %>
   </div>
 </div>
-
-<script>
-  window.onload = function() {
-    document.getElementById('logo-home').className = 'shown'
-  }
-</script>
