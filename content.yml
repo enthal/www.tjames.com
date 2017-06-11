@@ -22,10 +22,11 @@
         - $t: logo-big
           href: '/'
 
-        - |-
-          <br /><br />
-          ## I make sophisticated full-stack, web, and back-end JavaScript applications... _and lead teams to do the same_.  Twenty years experience.
-          <br /><br />
+        - $t: div
+          classStr: tagline
+          content: |-
+            I make sophisticated full-stack, web, and back-end JavaScript applications... <br />
+            _and lead teams to do the same_.  Twenty years experience.
 
         - $t: columns
           classStr: display-boxes
