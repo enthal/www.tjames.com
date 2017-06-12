@@ -25,4 +25,6 @@ nodemon \
  #   -s static/ \
  #   -o out/
 
+budo --live -d out  &
+
 wait
