@@ -9,46 +9,22 @@
   function onHeaderLoad(event) {
     var target = event.target;
     target.className = 'shown';
-    setTimeout(()=>console.log(target), 100);
 
-    target.classList.add()
-
-    //
-    // // https://developer.mozilla.org/en-US/docs/Web/Events/scroll
-    // var last_known_scroll_position = 0;
-    // var ticking = false;
-    //
-    // function doSomething(scroll_pos) {
-    //   // do something with the scroll position
-    // }
-    //
     var header = document.querySelector('header.my-page-header');
-    console.log(header);
     var isMarkedScrolled = false;
-    //
+
     window.addEventListener('scroll', function(e) {
-      // console.log(window.scrollY, e);
       var y = window.scrollY;
       if (y > 57 && !isMarkedScrolled) {
         header.classList.add('scrolled');
         isMarkedScrolled = true;
-        console.log(y, isMarkedScrolled, 'add');
+        // console.log(y, isMarkedScrolled, 'add');
       } else
       if (y <= 57 && isMarkedScrolled) {
         header.classList.remove('scrolled');
         isMarkedScrolled = false;
-        console.log(y, isMarkedScrolled, 'remove');
+        // console.log(y, isMarkedScrolled, 'remove');
       }
-
-
-    //   last_known_scroll_position = window.scrollY;
-    //   if (!ticking) {
-    //     window.requestAnimationFrame(function() {
-    //       doSomething(last_known_scroll_position);
-    //       ticking = false;
-    //     });
-    //   }
-    //   ticking = true;
     });
   }
 </script>
