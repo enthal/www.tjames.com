@@ -1,6 +1,15 @@
 <header class='my-page-header'>
-  <div>
-    <a href="/"><img id='logo-small' src='/TimothyJames-logo.png' onload="onHeaderLoad(event)"/></a>
+  <div class='header-width-container'>
+    <div class='header-flex-container'>
+      <div>
+        <a href="/"><img id='logo-small' src='/TimothyJames-logo.png' onload="onHeaderLoad(event)"/></a>
+      </div>
+      <ul id="header-menu">
+        <% _.each(menuItems, (item)=>{ %>
+          <li><a href="<%- item.url %>"><%- item.name %></a></li>
+        <% }) %>
+      </ul>
+    </div>
   </div>
 </header>
 <div class='fixed-header-spacer'></div>

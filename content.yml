@@ -17,6 +17,12 @@
   title: I offer.
   body:
     - $t: header
+      menuItems:
+        - name: Projects
+          url: /projects/
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/timjamestim
+
     - $t: div
       classStr: centered-glory
       content:
