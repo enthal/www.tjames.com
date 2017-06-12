@@ -16,16 +16,14 @@
   $path: offering/index.html
   title: I offer.
   body:
+    - $t: header
     - $t: div
       classStr: centered-glory
       content:
-        - $t: logo-big
-          href: '/'
-
         - $t: div
           classStr: tagline
           content: |-
-            I make sophisticated full-stack, web, and back-end JavaScript applications... <br />
+            I make sophisticated full-stack, web, and back-end JavaScript applications, <br />
             _and lead teams to do the same_.  Twenty years experience.
 
         - $t: columns
@@ -33,10 +31,11 @@
           columns:
             - |-
               ## Applications
-              Full-stack, scalable Applications on React, Node.js, AWS Cloud.  The right application to take your business further.
+              Full-stack, scalable applications on Node.js, React, AWS Cloud, and more.  The _right_ application to take your business further.
             - |-
               ## Leadership
-              Great teams sometimes need help to meet systems challenges.  I can lead and mentor your people to mastery in your app.
+              Is your team stuck?  Great teams sometimes need help to meet systems challenges.
+              I can lead and mentor your people to mastery.
 
         - $t: div
           classStr: spaciousness
