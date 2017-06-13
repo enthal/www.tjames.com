@@ -14,7 +14,7 @@
 
 - $t: page
   $path: offering/index.html
-  title: I offer.
+  title: Full-stack apps • by contract
   body:
     - $t: header
       menuItems:
@@ -22,6 +22,11 @@
           url: /projects/
         - name: LinkedIn
           url: https://www.linkedin.com/in/timjamestim
+        - name: Email me
+          url: mailto:letsdothis@tjames.com
+        - name: 415-305-0247
+          url: tel:415-305-0247
+
 
     - $t: div
       classStr: centered-glory
@@ -29,15 +34,15 @@
         - $t: div
           classStr: tagline
           content: |-
-            I make sophisticated full-stack, web, and back-end JavaScript applications, <br />
-            _and lead teams to do the same_.  Twenty years experience.
+            Full-stack, web, and back-end JavaScript applications.  <br />
+            _Twenty years experience._  San Francisco Bay Area.
 
         - $t: columns
           classStr: display-boxes
           columns:
             - |-
               ## Applications
-              Full-stack, scalable applications on Node.js, React, AWS Cloud, and more.  The _right_ application to take your business further.
+              Sophisticated full-stack, scalable applications on Node.js, React, AWS Cloud, and more.  The _right_ application to take your business further.
             - |-
               ## Leadership
               Is your team stuck?  Great teams sometimes need help to meet systems challenges.

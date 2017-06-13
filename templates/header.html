@@ -6,7 +6,7 @@
       </div>
       <ul id="header-menu">
         <% _.each(menuItems, (item)=>{ %>
-          <li><a href="<%- item.url %>"><%- item.name %></a></li>
+          <a href="<%- item.url %>"><li><%- item.name %></li></a>
         <% }) %>
       </ul>
     </div>
