@@ -1,5 +1,5 @@
 - $t: page
-  $path: index.html
+  $path: old/index.html
   title: Freelance Principal Software Engineer
   body:
     - $t: home
@@ -11,9 +11,12 @@
         - name: LinkedIn
           url: https://www.linkedin.com/in/timjamestim
 
+- $t: redirect
+  $path: offering/index.html
+  toUrl: /
 
 - $t: page
-  $path: offering/index.html
+  $path: index.html
   title: Full-stack apps • by contract
   body:
     - $t: header
