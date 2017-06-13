@@ -4,11 +4,14 @@
       <div>
         <a href="/"><img id='logo-small' src='/TimothyJames-logo.png' onload="onHeaderLoad(event)"/></a>
       </div>
-      <ul id="header-menu">
-        <% _.each(menuItems, (item)=>{ %>
-          <a href="<%- item.url %>"><li><%- item.name %></li></a>
-        <% }) %>
-      </ul>
+      <div>
+        <div class='menu-burger'>&#9776;</div>
+        <ul id="header-menu">
+          <% _.each(menuItems, (item)=>{ %>
+            <a href="<%- item.url %>"><li><%- item.name %></li></a>
+          <% }) %>
+        </ul>
+      </div>
     </div>
   </div>
 </header>
@@ -35,5 +38,16 @@
         // console.log(y, isMarkedScrolled, 'remove');
       }
     });
+
+    var burger = header.querySelector('.menu-burger');
+    var menu = header.querySelector('#header-menu');
+    burger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      menu.classList.toggle('show-mobile');
+    });
+    document.querySelector('body').addEventListener('click', function(e) {
+      menu.classList.remove('show-mobile');
+    });
+
   }
 </script>
