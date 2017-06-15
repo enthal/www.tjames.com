@@ -1,23 +1,7 @@
-- $t: page
-  $path: old/index.html
-  title: Freelance Principal Software Engineer
-  body:
-    - $t: home
-      menuItems:
-        - name: About
-          url: /about/
-        - name: Projects
-          url: /projects/
-        - name: LinkedIn
-          url: https://www.linkedin.com/in/timjamestim
-
-- $t: redirect
-  $path: offering/index.html
-  toUrl: /
 
 - $t: page
   $path: index.html
-  title: Full-stack apps • by contract
+  title: Solutions Architect • Full-stack app dev • by contract
   body:
     - $t: header
       menuItems:
@@ -74,6 +58,10 @@
               ## Let's talk today
               [Email](mailto:getstarted@tjames.com) • [415-305-0247](tel:415-305-0247) • San Francisco Bay Area
 
+
+- $t: redirect
+  $path: offering/index.html
+  toUrl: /
 
 
 
@@ -206,3 +194,17 @@
             Allows non-engineers to perform this work;
             10-20 engineer hours/week freed immediately (to much rejoicing), growing 2-4x over following year;
             allows international staff to deal with non-US fraud.
+
+
+- $t: page
+  $path: old/index.html
+  title: Freelance Principal Software Engineer
+  body:
+    - $t: home
+      menuItems:
+        - name: About
+          url: /about/
+        - name: Projects
+          url: /projects/
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/timjamestim
