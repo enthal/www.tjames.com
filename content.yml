@@ -21,7 +21,8 @@
         - $t: div
           classStr: tagline
           content: |-
-            Full-stack, web, and back-end JavaScript applications.  <br />
+            Solutions Architect.  <br />
+            Full-stack, web, and back-end JavaScript applications, delivered.  <br />
             _Twenty years experience._  San Francisco Bay Area.
 
         - $t: columns
@@ -29,7 +30,7 @@
           columns:
             - |-
               ## Applications
-              Sophisticated full-stack, scalable applications on Node.js, React, AWS Cloud, and more.  The _right_ application to take your business further.
+              Sophisticated full-stack, scalable applications on Node.js, React, AWS Cloud, SQL DBs, and more.  The _right_ application to take your business further.
             - |-
               ## Leadership
               Is your team stuck?  Great teams sometimes need help to meet systems challenges.
