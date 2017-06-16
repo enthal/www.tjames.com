@@ -1,7 +1,7 @@
 
 - $t: page
   $path: index.html
-  title: Solutions Architect • Full-stack app dev • by contract
+  title: Solutions/Systems Architect • Full-stack app dev • by contract
   body:
     - $t: header
       menuItems:
@@ -21,7 +21,7 @@
         - $t: div
           classStr: tagline
           content: |-
-            Solutions Architect.  <br />
+            Solutions and Systems Architect.  <br />
             Full-stack, web, and back-end JavaScript applications, delivered.  <br />
             _Twenty years experience._  San Francisco Bay Area.
 
@@ -33,8 +33,8 @@
               Sophisticated full-stack, scalable applications on Node.js, React, AWS Cloud, SQL DBs, and more.  The _right_ application to take your business further.
             - |-
               ## Leadership
-              Is your team stuck?  Great teams sometimes need help to meet systems challenges.
-              I can lead and mentor your people to mastery.
+              Is your team committed to vision but hitting a wall?  Great teams sometimes need help to meet systems challenges.
+              I can lead—and mentor—your people to mastery.
 
         - $t: div
           classStr: spaciousness
