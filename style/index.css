@@ -144,6 +144,16 @@ img#logo-small {
     font-size: 135%;
     color: $color-dim;
     margin: calc(3.35 * 57px) 1em 3.5em 1em;
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        display: inline-block;
+        list-style-type: none;
+        margin-bottom: 0.2em;
+      }
+    }
+
   }
 
   .spaciousness {
@@ -260,6 +270,7 @@ header.my-page-header {
   padding-bottom: 1em;
   background-color: #FBFBFB;
   font-size: 110%;
+  margin-bottom: 1em;
 
   h1,h2 {
     font-size: 20pt;

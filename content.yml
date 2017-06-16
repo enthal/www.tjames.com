@@ -21,13 +21,16 @@
         - $t: div
           classStr: tagline
           content: |-
-            Solutions and Systems **Architect**.  <br />
-            Full-stack, web, and back-end JavaScript Applications **Developer**.  <br />
-            **Twenty years** experience.  San Francisco Bay Area.
+            - Solutions and Systems **Architect**.
+            - Full-stack, web, and back-end JavaScript Applications **Developer**.
+            - **Twenty years** experience.  San Francisco Bay Area.
 
         - $t: columns
           classStr: display-boxes
           columns:
+            - |-
+              ## Architecture
+              Mapping business needs to system properties to technology choices and end-to-end execution.
             - |-
               ## Applications
               Sophisticated full-stack, scalable applications on Node.js, React, AWS Cloud, SQL DBs, and more.  The _right_ application to take your business further.
@@ -40,7 +43,7 @@
           classStr: spaciousness
           content: |-
 
-            # Full-stack Applications
+            # Systems and Applications
             - Resilient distributed systems, sophisticated real-time web apps, complex multi-party integrations.
             - UIs that powerfully connect users in real-time to intricate and ever-changing spaces of data—and to each other.
             - Systems with exactly the right properties and tradeoffs—across throughput, latency, resilience, security, scaling, and more.
