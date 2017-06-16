@@ -21,9 +21,9 @@
         - $t: div
           classStr: tagline
           content: |-
-            Solutions and Systems Architect.  <br />
-            Full-stack, web, and back-end JavaScript applications, delivered.  <br />
-            _Twenty years experience._  San Francisco Bay Area.
+            Solutions and Systems **Architect**.  <br />
+            Full-stack, web, and back-end JavaScript Applications **Developer**.  <br />
+            **Twenty years** experience.  San Francisco Bay Area.
 
         - $t: columns
           classStr: display-boxes
