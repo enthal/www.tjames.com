@@ -33,7 +33,8 @@
               Mapping business needs to system properties to technology choices and end-to-end execution.
             - |-
               ## Applications
-              Sophisticated full-stack, scalable applications on Node.js, React, AWS Cloud, SQL DBs, and more.  The _right_ application to take your business further.
+              Sophisticated full-stack, scalable applications on Node.js, React, AWS Cloud, SQL DBs, Google Firebase, and more.
+              The _right_ application to take your business further.
             - |-
               ## Leadership
               Is your team committed to vision but hitting a wall?  Great teams sometimes need help to meet systems challenges.
@@ -48,7 +49,7 @@
             - UIs that powerfully connect users in real-time to intricate and ever-changing spaces of data—and to each other.
             - Systems with exactly the right properties and tradeoffs—across throughput, latency, resilience, security, scaling, and more.
             - Tools and products tailored to the subtle nuances of stakeholder needs.
-            - React, AngularJS, Node.js, AWS Cloud, ...
+            - Node.js, AWS Cloud, React, AngularJS, Google Firebase, PostgreSQL, Docker, ...
 
             # Technical Leadership
             - If you’ve got a dev team, I can provide them the guidance and mentorship that leads to mastery of the right mindset and techniques for the project.
