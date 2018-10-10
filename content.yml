@@ -3,7 +3,8 @@
   $path: index.html
   title: Solutions/Systems Architect • Full-stack app dev • by contract
   body:
-    - $t: header
+    - &header
+      $t: header
       menuItems:
         - name: Projects
           url: /projects/
@@ -77,15 +78,16 @@
   $path: projects/index.html
   title: Representative Projects
   body:
-    - $t: page-header
-      title: Representative Projects   # TODO: DRY!
+    - *header
+
     - $t: div
-      classStr: projects inset-content
+      classStr: projects centered-glory
       content:
+
         - $t: div
           classStr: intro
           content: |-
-            I owned the projects listed here
+            I owned the **projects** listed here
             [for Change.org, between February 2012 and May 2015](https://www.linkedin.com/in/timjamestim).
 
         - $t: project

@@ -6,7 +6,7 @@ $color-dim: #727177;
 body {
   background-color: white;
   margin: 0;
-  font-family: 'Lora', serif;
+  font-family: 'Oxygen', sans-serif;
   color: #000000;
   font-size: 13pt;
 }
@@ -92,12 +92,6 @@ img#logo-small {
     transform: scale(1.1) translateY(-3px);
     transition: all 0.1s linear;
   }
-}
-
-.inset-content {
-  max-width: 500pt;
-  padding: 7.2pt 21.6pt 7.2pt 21.6pt;
-  /*margin-top: 2em;*/
 }
 
 .centered-glory {
@@ -256,6 +250,8 @@ header.my-page-header {
 }
 
 .projects {
+  padding: 7.2pt 10pt;
+
   .project {
     margin-bottom: 1.2em;
   }
@@ -280,11 +276,16 @@ header.my-page-header {
   }
 
   .intro {
+    color: $color-dim;
+    margin: calc(2.6 * 57px) 1em 3.5em 0em;
     font-style: italic;
     display: inline-block;
-    padding-bottom: 1em;
-    color: #777;
     font-size: 90%;
+
+    strong {
+      font-size: 150%;
+      color: $color-bright;
+    }
   }
 }
 
