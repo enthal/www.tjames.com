@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "./scripts/watch.sh",
-    "build": "gulp build"
+    "build": "gulp build",
+    "upload": "./scripts/upload.sh"
   },
   "dependencies": {
     "autoprefixer": "^7.1.1",
