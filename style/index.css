@@ -27,31 +27,6 @@ a:visited { color: #888; }
 */
 
 
-#home {
-  font-family: 'Oxygen', sans-serif;
-
-  #distance {
-    width: 1px;
-    height: 30%;
-    float: left;
-  }
-
-  #container {
-    margin: 0 auto;
-    position: relative;
-    /* puts container in front of distance */
-
-    text-align: left;
-    width: 40em;
-    clear: left;
-  }
-
-  #container div {
-    float: center;
-    width: 17em;
-  }
-}
-
 #header-menu {
   font-family: 'Oxygen', sans-serif;
   letter-spacing: 0.10em;
@@ -125,10 +100,6 @@ img#logo-small {
   /*margin-top: 2em;*/
 }
 
-.about-content p {
-  margin-bottom: 1.2em;
-}
-
 .centered-glory {
   max-width: 960px;
   margin-left: auto;
@@ -153,7 +124,6 @@ img#logo-small {
         margin-bottom: 0.2em;
       }
     }
-
   }
 
   .spaciousness {
