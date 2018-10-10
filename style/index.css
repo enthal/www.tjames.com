@@ -6,7 +6,7 @@ $color-dim: #727177;
 body {
   background-color: white;
   margin: 0;
-  font-family: 'Lora', serif;
+  font-family: 'Oxygen', sans-serif;
   color: #000000;
   font-size: 13pt;
 }
@@ -26,31 +26,6 @@ a:visited { color: #888; }
 }
 */
 
-
-#home {
-  font-family: 'Oxygen', sans-serif;
-
-  #distance {
-    width: 1px;
-    height: 30%;
-    float: left;
-  }
-
-  #container {
-    margin: 0 auto;
-    position: relative;
-    /* puts container in front of distance */
-
-    text-align: left;
-    width: 40em;
-    clear: left;
-  }
-
-  #container div {
-    float: center;
-    width: 17em;
-  }
-}
 
 #header-menu {
   font-family: 'Oxygen', sans-serif;
@@ -119,16 +94,6 @@ img#logo-small {
   }
 }
 
-.inset-content {
-  max-width: 500pt;
-  padding: 7.2pt 21.6pt 7.2pt 21.6pt;
-  /*margin-top: 2em;*/
-}
-
-.about-content p {
-  margin-bottom: 1.2em;
-}
-
 .centered-glory {
   max-width: 960px;
   margin-left: auto;
@@ -153,7 +118,6 @@ img#logo-small {
         margin-bottom: 0.2em;
       }
     }
-
   }
 
   .spaciousness {
@@ -286,6 +250,8 @@ header.my-page-header {
 }
 
 .projects {
+  padding: 7.2pt 10pt;
+
   .project {
     margin-bottom: 1.2em;
   }
@@ -310,11 +276,16 @@ header.my-page-header {
   }
 
   .intro {
+    color: $color-dim;
+    margin: calc(2.6 * 57px) 1em 3.5em 0em;
     font-style: italic;
     display: inline-block;
-    padding-bottom: 1em;
-    color: #777;
     font-size: 90%;
+
+    strong {
+      font-size: 150%;
+      color: $color-bright;
+    }
   }
 }
 
