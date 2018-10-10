@@ -161,7 +161,7 @@
           solution: |-
             I started the change.org &ldquo;Data/science&rdquo; team with this project as first mission. &nbsp;
             We empirically discovered which data sets, data processes, technologies, and machine learning algorithms garnered best results&mdash;and productized the winners into a system used daily by US and international staff to reach an email audience of 30+ million users. &nbsp;
-            Tech: AWS distributed and ephemeral compute solution including MapReduce with Cascading on AWS EMR; on demand machine learning (for laboratory and production) on scaled-to-job-size EC2 clusters coordinated with AWS Simple WorkFlow (SWF); dynamic results visualization (confidence curves) and reach/impact tradeoff control web tool using D3. &nbsp;
+            Tech: AWS distributed and ephemeral compute solution including MapReduce with Cascading on AWS EMR; on-demand machine learning (for laboratory and production) on scaled-to-job-size EC2 clusters coordinated with AWS Simple WorkFlow (SWF); dynamic results visualization (confidence curves) and reach/impact tradeoff control web tool using D3. &nbsp;
           results: |-
             30% immediate conversion rate improvement; dramatic campaign staff efficiency and focus improvements;
             staff in total control over reach/impact tradeoffs.
