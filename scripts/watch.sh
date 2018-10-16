@@ -1,8 +1,10 @@
 gulp rimraf
 
+DEBUG=please \
 nodemon \
  -e js,yml,yaml,html,css \
  -w index.yml \
+ -w content/  \
  -w templates/  \
  -w gulpfile.js \
  -x gulp template &
@@ -18,12 +20,6 @@ nodemon \
  -w static/ \
  -w gulpfile.js \
  -x gulp static &
-
- # ../temple/index.js \
- #   -c index.yml \
- #   -t templates/ \
- #   -s static/ \
- #   -o out/
 
 budo --live -d out  &
 
