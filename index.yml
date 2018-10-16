@@ -27,7 +27,7 @@
 
 - $t: page
   $path: projects/index.html
-  title: Representative Projects
+  title: Featured Projects
   body:
     - $ref: header
 
