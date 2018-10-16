@@ -42,4 +42,5 @@
             [for Change.org, between February 2012 and May 2015](https://www.linkedin.com/in/timjamestim).
 
         - $t: project-control
-        - $include: content/projects.yml
+          projects:
+            $include: content/projects.yml

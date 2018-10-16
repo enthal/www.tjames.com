@@ -1,8 +1,12 @@
-<div id=label-buttons></div>
+<div id="projects-widget" class="projects-widget">
+  <div id="label-buttons"></div>
+  <div>
+    <%= $.recurse(projects) %>
+  </div>
+</div>
 
 <script>
-  window.addEventListener("load", () => {
-    const projects = Array.from(document.querySelectorAll('.projects .project'));
+    const projects = Array.from(document.querySelectorAll('#projects-widget .project'));
 
     // Collect unique labels across projects, indexing projects by label
     const labelSet = new Set();
@@ -32,7 +36,7 @@
         projects.forEach(
           project => project.classList.remove('active')  // start all projects inactive
         );
-        // Activate each project with an effective label
+        // Activate each project bearing an active (or effective) label
         effectiveLabelSet.forEach( label =>     // for each effective label ...
           projectSetByLabel.get(label).forEach(   // for each matching project ...
             project => {                            // activate!
@@ -44,7 +48,6 @@
         // TODO: track in google analytics
       });
 
-      document.querySelector('#label-buttons').appendChild( button );
+      document.querySelector('#projects-widget #label-buttons').appendChild( button );
     });
-  });
 </script>
