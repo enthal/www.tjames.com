@@ -2,7 +2,7 @@ gulp rimraf
 
 nodemon \
  -e js,yml,yaml,html,css \
- -w content.yml \
+ -w index.yml \
  -w templates/  \
  -w gulpfile.js \
  -x gulp template &
@@ -20,7 +20,7 @@ nodemon \
  -x gulp static &
 
  # ../temple/index.js \
- #   -c content.yml \
+ #   -c index.yml \
  #   -t templates/ \
  #   -s static/ \
  #   -o out/

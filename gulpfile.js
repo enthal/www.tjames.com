@@ -9,7 +9,7 @@ gulp.task('build', sequence('rimraf', 'default', 'rev-replace'));
 
 gulp.task('template', () =>
   gulp.src('./templates/*.html')
-    .pipe(temple('./content.yml'))
+    .pipe(temple('./index.yml'))
     .pipe(gulp.dest('out'))
 );
 
