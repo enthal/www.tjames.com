@@ -3,8 +3,9 @@
 <script>
   window.addEventListener("load", () => {
     const projects = Array.from(document.querySelectorAll('.projects .project'));
+
+    // Collect unique labels across projects, indexing projects by label
     const labelSet = new Set();
-    const activeLabelSet = new Set();
     const projectSetByLabel = new Map();
     projects.forEach( project =>
       project.attributes.labels.value.split(/\s+/).forEach( label => {
@@ -13,28 +14,37 @@
         projectSetByLabel.get(label).add(project);
       } ) );
     console.log(labelSet, projectSetByLabel);
-    const buttonSetByLabel = new Map();
+
+    // Create label-selector buttons
+    const activeLabelSet = new Set();
     labelSet.forEach(label => {
       const button = document.createElement('button');
       button.innerText = label;
+
       button.addEventListener('click', () => {
+        // Toggle button state and activate only projects with any active label
+
         button.classList.toggle('active');
         activeLabelSet[activeLabelSet.has(label) ? 'delete' : 'add'](label);  // toggle
         const effectiveLabelSet = activeLabelSet.size ? activeLabelSet : labelSet;
         console.log(effectiveLabelSet, activeLabelSet.size, activeLabelSet,  labelSet)
+
         projects.forEach(
-          project => project.classList.remove('active')
+          project => project.classList.remove('active')  // start all projects inactive
         );
-        effectiveLabelSet.forEach( label => projectSetByLabel.get(label).forEach(
-          project => {
-            project.classList.add('active')
-            console.log(label, project, project.classList)
-          }
-        ) );
+        // Activate each project with an effective label
+        effectiveLabelSet.forEach( label =>     // for each effective label ...
+          projectSetByLabel.get(label).forEach(   // for each matching project ...
+            project => {                            // activate!
+              project.classList.add('active')
+              console.log(label, project, project.classList)
+            }
+          ) );
+
+        // TODO: track in google analytics
       });
+
       document.querySelector('#label-buttons').appendChild( button );
-      buttonSetByLabel.get(label) || buttonSetByLabel.set(label, new Set());
-      buttonSetByLabel.get(label).add(button);
     });
   });
 </script>
