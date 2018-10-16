@@ -16,6 +16,6 @@
     "postcss-nested-vars": "^0.0.2",
     "precss": "^1.4.0",
     "rimraf": "^2.6.1",
-    "temple-cms": "file:../temple"
+    "temple-cms": "file:../temple-cms"
   }
 }

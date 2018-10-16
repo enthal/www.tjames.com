@@ -90,10 +90,14 @@
             I owned the **projects** listed here
             [for Change.org, between February 2012 and May 2015](https://www.linkedin.com/in/timjamestim).
 
+        - $t: project-control
+
         - $t: project
           title: |-
             **Reliable, transparent** lead delivery platform with **multi-CRM integration** –
             _principal engineer, team lead, architect, lead coder_
+          labels:
+            - a
           problem: |-
             Legacy system frequently failed, and failed silently, to deliver vital leads to customers&mdash;with 80% of company revenue in lead generation. &nbsp;
             Leads sometimes double-delivered or double billed. &nbsp;
@@ -119,6 +123,9 @@
           title: |-
             **Machine learning-driven recommender** system for email delivery –
             _initiator and team lead_
+          labels:
+            - a
+            - b
           problem: |-
             Change.org&rsquo;s manual email targeting tools and processes were delivering significantly sub-optimal results and thwarted scaling user base, content base (petitions), professional campaign staff, and international expansion. &nbsp;
             These manually targeted mass emails drove 80% of traffic and thus revenue. &nbsp;
@@ -136,6 +143,9 @@
           title: |-
             Move analytics to Amazon **Redshift with ETL** –
             _initiator and team lead_
+          labels:
+            - b
+            - c
           problem: |-
             Emergent performance collapse for heavy analytics queries on legacy disk-based MySQL slave/replica of huge production DB.
           solution: |-
@@ -149,6 +159,9 @@
             freed staffers and managers across the company to meet their own needs using direct SQL queries without taxing precious advanced analyst resources.
 
         - $t: project
+          labels:
+            - c
+            - d
           title: |-
             High-throughput **fraud analysis tool** –
             _primary engineer, inception to full production_

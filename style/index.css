@@ -254,6 +254,14 @@ header.my-page-header {
 
   .project {
     margin-bottom: 1.2em;
+
+    &:not(.active) {
+      color: #fbb;
+      display: none;
+    }
+    &.active {
+      /* color: green; */
+    }
   }
 
   .project-section-label {
@@ -285,6 +293,17 @@ header.my-page-header {
     strong {
       font-size: 150%;
       color: $color-bright;
+    }
+  }
+
+  #label-buttons button {
+    margin: 2px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+
+    &.active {
+      background-color: color($color-bright lightness(+30%));
+      border-color:     color($color-bright lightness(+10%));
     }
   }
 }

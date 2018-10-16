@@ -24,6 +24,7 @@ gulp.task('css', () => {
       require('autoprefixer'),
       require('lost'),
       require('postcss-nested-vars'),
+      require('postcss-color-function'),
       ]) )
     .pipe( sourcemaps.write('.') )
     .pipe( gulp.dest('out/') );
