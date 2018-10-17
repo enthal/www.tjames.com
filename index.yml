@@ -41,6 +41,6 @@
             I owned the **projects** listed here
             [for Change.org, between February 2012 and May 2015](https://www.linkedin.com/in/timjamestim).
 
-        - $t: project-control
+        - $t: projects-widget
           projects:
             $include: content/projects.yml
