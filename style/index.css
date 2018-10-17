@@ -389,6 +389,21 @@ header.my-page-header {
         font-size: 120%;
         font-weight: bold;
       }
+      @media print {
+        font-size: 110%;
+        &:not(.active) {
+          display: none;
+        }
+      }
+    }
+
+    @media print {
+      &:not(.any-active) {
+        /* display: none; */
+        visibility: hidden;
+        height: 0;
+        padding: 0;
+      }
     }
   }
 
