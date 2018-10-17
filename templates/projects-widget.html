@@ -11,16 +11,20 @@
 <script>
     const projects = Array.from(document.querySelectorAll('#projects-widget .project'));
 
-    // Collect unique labels across projects, indexing projects by label
+    // Collect unique labels across projects, indexing projects by label, and labels by project
     const labelSet = new Set();
+    const labelSetByProject = new Map();
     const projectSetByLabel = new Map();
-    projects.forEach( project =>
-      project.attributes.labels.value.split(/\s+/).forEach( label => {
+    projects.forEach( project => {
+      const projectLabelSet = new Set(project.attributes.labels.value.split(/\s+/));
+      labelSetByProject.set(project, projectLabelSet);
+      projectLabelSet.forEach( label => {
         labelSet.add(label);
         projectSetByLabel.get(label) || projectSetByLabel.set(label, new Set());
         projectSetByLabel.get(label).add(project);
-      } ) );
-    console.log(labelSet, projectSetByLabel);
+      } )
+    });
+    console.log(labelSet, projectSetByLabel, labelSetByProject);
 
     // Create label-selector buttons
     const activeLabelSet = new Set();
@@ -29,24 +33,39 @@
       button.innerText = label;
 
       button.addEventListener('click', () => {
-        // Toggle button state and activate only projects with any active label
 
+        // Toggle button state
         button.classList.toggle('active');
         activeLabelSet[activeLabelSet.has(label) ? 'delete' : 'add'](label);  // toggle
-        const effectiveLabelSet = activeLabelSet.size ? activeLabelSet : labelSet;
-        console.log(effectiveLabelSet, activeLabelSet.size, activeLabelSet,  labelSet)
+        console.log(activeLabelSet, activeLabelSet.size, activeLabelSet,  labelSet)
 
-        projects.forEach(
-          project => project.classList.remove('active')  // start all projects inactive
-        );
-        // Activate each project bearing an active (or effective) label
-        effectiveLabelSet.forEach( label =>     // for each effective label ...
-          projectSetByLabel.get(label).forEach(   // for each matching project ...
-            project => {                            // activate!
-              project.classList.add('active')
-              console.log(label, project, project.classList)
+        // Activate projects per active labels
+        if (!activeLabelSet.size) {
+          // Special case: activate all projects when no labels active
+          projects.forEach( project => project.classList.add('active') );
+        } else {
+          // Some labels active...
+
+          // Start all projects inactive
+          projects.forEach( project => project.classList.remove('active') );
+
+          // Activate each project bearing ALL active labels
+          labelSetByProject.forEach((projectLabelSet, project) => {
+            if (isSuperset(projectLabelSet, activeLabelSet)) {
+              project.classList.add('active');
             }
-          ) );
+          });
+
+          // // Activate each project bearing ANY active label;  TODO: make optional mode??
+          // activeLabelSet.forEach( label =>     // for each active label ...
+          //   projectSetByLabel.get(label).forEach(   // for each matching project ...
+          //     project => {                            // activate!
+          //       project.classList.add('active')
+          //       console.log(label, project, project.classList)
+          //     }
+          //   )
+          // );
+        }
 
         document.querySelector('#projects-widget .label-buttons-container')
           .classList[activeLabelSet.size ? 'add' : 'remove']('any-active');
@@ -56,4 +75,14 @@
 
       document.querySelector('#projects-widget .label-buttons').appendChild( button );
     });
+
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set#Implementing_basic_set_operations
+    function isSuperset(set, subset) {
+      for (var elem of subset) {
+          if (!set.has(elem)) {
+              return false;
+          }
+      }
+      return true;
+    }
 </script>
