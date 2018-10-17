@@ -50,9 +50,13 @@ a:visited { color: #888; }
       border-bottom: 2px solid $color-bright
     }
   }
+
+  @media print {
+    display: none;
+  }
 }
 
-img#logo-big {
+img#logo-big {   /* TODO: remove; unused */
   opacity: 0.1;
   transform: scale(1.1, 1) translateY(15px);
   transition: all 0.5s ;
@@ -77,20 +81,24 @@ img#logo-big {
   }
 }
 
-img#logo-small {
-  opacity: 0;
+img#logo-small {  /* TODO: move under .my-page-header */
   transform-origin: top left;
-  transform: scale(1.7, 1.3) translateY(15px);
   transition: all 0.5s ease-in;
 
-  &.shown {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+  @media screen {
+    opacity: 0;
+    &.shown {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    &.shown:hover {   /* overridden by header.my-page-header:not(.scrolled), below; TODO fix */
+      transform: scale(1.1) translateY(-3px);
+      transition: all 0.1s linear;
+    }
   }
-
-  &.shown:hover {
-    transform: scale(1.1) translateY(-3px);
-    transition: all 0.1s linear;
+  @media print {
+    transform: scale(2.2) translateX(-1em);
+    /* transform: scale(1.7, 1.3) translateY(15px); */
   }
 }
 
@@ -108,7 +116,7 @@ img#logo-small {
     font-family: 'Oxygen', sans-serif;
     font-size: 135%;
     color: $color-dim;
-    margin: calc(3.35 * 57px) 1em 3.5em 1em;
+    margin: 1em 1em 3.5em 1em;
     ul {
       padding: 0;
       margin: 0;
@@ -141,14 +149,16 @@ header.my-page-header {
   background-color: white;
   width: 100%;
   height: 57px;
-  box-shadow: 0px 1px 10px #5E5E5E;
-  position: fixed;
-  top: 0px;
   margin: auto;
   z-index: 1000;
   transition:
     all 0.5s ease-in,
     box-shadow 0.6s linear 0.4s;
+  @media screen {
+    box-shadow: 0px 1px 10px #5E5E5E;
+    position: fixed;
+    top: 0px;
+  }
 
   img {
     /*width:  114px;*/
@@ -173,23 +183,28 @@ header.my-page-header {
   }
 
   & + .fixed-header-spacer {
-    height: calc(57px + 20px + 3em);
+    height: calc(170px + 7em);
     @media screen and (max-width: 400px) {
       height: 0;
     }
+    @media print {
+      height: 3em;
+    }
   }
 
-  &:not(.scrolled) {
-    box-shadow: none;
-    transition: box-shadow 0.3s linear;
+  @media screen {
+    &:not(.scrolled) {
+      box-shadow: none;
+      transition: box-shadow 0.3s linear;
 
-    img#logo-small {
-      transform: scale(3.35, 3.35) translateY(25px) translateX(-5px);
-      @media screen and (max-width: 617px) {
-        transform: scale(3, 3) translateY(25px) translateX(-5px);
-      }
-      @media screen and (max-width: 400px) {
-        transform: scale(1.62, 1.62) translateY(25px) translateX(-5px);
+      img#logo-small {
+        transform: scale(3.35, 3.35) translateY(25px) translateX(-5px);
+        @media screen and (max-width: 617px) {
+          transform: scale(3, 3) translateY(25px) translateX(-5px);
+        }
+        @media screen and (max-width: 400px) {
+          transform: scale(1.62, 1.62) translateY(25px) translateX(-5px);
+        }
       }
     }
   }
@@ -221,6 +236,19 @@ header.my-page-header {
     margin-right: -3px;
     /*color: white;
     background-color: black;*/
+    @media print {
+      display: none;
+    }
+  }
+
+  .print-info {
+    @media screen {
+      display: none;
+    }
+    @media print {
+      text-align: right;
+      padding-top: 0.5em;
+    }
   }
 }
 
@@ -282,6 +310,11 @@ header.my-page-header {
         /* color: green; */
       }
     }
+    @media print {
+      &:not(.active) {
+        display: none;
+      }
+    }
   }
 
   .project-section-label {
@@ -305,7 +338,6 @@ header.my-page-header {
 
   .intro {
     color: $color-dim;
-    margin-top: calc(2.6 * 57px);  /* TODO: this is spacer for logo; move to header/logo */
     font-style: italic;
     display: inline-block;
     font-size: 90%;

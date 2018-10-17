@@ -12,6 +12,10 @@
           url: mailto:letsdothis@tjames.com
         - name: 415-305-0247
           url: tel:415-305-0247
+      printInfo:
+        - tjames.com
+        - connect@tjames.com
+        - 415-305-0247
 
 
 - $include: content/home.yml

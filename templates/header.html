@@ -11,6 +11,11 @@
             <a href="<%- item.url %>"><li><%- item.name %></li></a>
           <% }) %>
         </ul>
+        <div class='print-info'>
+          <% _.each(printInfo, (line)=>{ %>
+            <div><%- line %></div>
+          <% }) %>
+        </div>
       </div>
     </div>
   </div>
