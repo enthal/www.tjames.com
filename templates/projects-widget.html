@@ -1,5 +1,5 @@
 <div id="projects-widget" class="projects-widget">
-  <div id="label-buttons"></div>
+  <div class="label-buttons"></div>
   <div>
     <%= $.recurse(projects) %>
   </div>
@@ -48,6 +48,6 @@
         // TODO: track in google analytics
       });
 
-      document.querySelector('#projects-widget #label-buttons').appendChild( button );
+      document.querySelector('#projects-widget .label-buttons').appendChild( button );
     });
 </script>

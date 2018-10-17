@@ -296,14 +296,23 @@ header.my-page-header {
     }
   }
 
-  #label-buttons button {
+  .label-buttons button {
     margin: 2px;
     border: 1px solid #aaa;
     border-radius: 5px;
+    font-size: 110%;
+    background-color: color($color-dim lightness(+40%));
+    min-width: 3em;
+    padding: 4px 10px;
 
     &.active {
       background-color: color($color-bright lightness(+30%));
       border-color:     color($color-bright lightness(+10%));
+      font-size: 130%;
+      font-weight: bold;
+    }
+    &:focus {
+      outline:0;
     }
   }
 }
