@@ -3,7 +3,11 @@
     **Reliable, transparent** lead delivery platform with **multi-CRM integration** –
     _principal engineer, team lead, architect, lead coder_
   labels:
-    - a
+    - integration
+    - ui
+    - sql-db
+    - cloud
+    - leadership
   problem: |-
     Legacy system frequently failed, and failed silently, to deliver vital leads to customers&mdash;with 80% of company revenue in lead generation. &nbsp;
     Leads sometimes double-delivered or double billed. &nbsp;
@@ -30,8 +34,11 @@
     **Machine learning-driven recommender** system for email delivery –
     _initiator and team lead_
   labels:
-    - a
-    - b
+    - machine-learning
+    - data-engineering
+    - cloud
+    - ui
+    - leadership
   problem: |-
     Change.org&rsquo;s manual email targeting tools and processes were delivering significantly sub-optimal results and thwarted scaling user base, content base (petitions), professional campaign staff, and international expansion. &nbsp;
     These manually targeted mass emails drove 80% of traffic and thus revenue. &nbsp;
@@ -50,8 +57,10 @@
     Move analytics to Amazon **Redshift with ETL** –
     _initiator and team lead_
   labels:
-    - b
-    - c
+    - data-engineering
+    - sql-db
+    - cloud
+    - leadership
   problem: |-
     Emergent performance collapse for heavy analytics queries on legacy disk-based MySQL slave/replica of huge production DB.
   solution: |-
@@ -66,8 +75,8 @@
 
 - $t: project
   labels:
-    - c
-    - d
+    - data-engineering
+    - ui
   title: |-
     High-throughput **fraud analysis tool** –
     _primary engineer, inception to full production_
