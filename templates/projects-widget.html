@@ -1,5 +1,8 @@
 <div id="projects-widget" class="projects-widget">
-  <div class="label-buttons"></div>
+  <div class="label-buttons-container">
+    <span class="label-buttons-label">SELECT</span>
+    <div class="label-buttons"></div>
+  </div>
   <div>
     <%= $.recurse(projects) %>
   </div>
@@ -44,6 +47,9 @@
               console.log(label, project, project.classList)
             }
           ) );
+
+        document.querySelector('#projects-widget .label-buttons-container')
+          .classList[activeLabelSet.size ? 'add' : 'remove']('any-active');
 
         // TODO: track in google analytics
       });

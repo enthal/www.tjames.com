@@ -249,7 +249,9 @@ header.my-page-header {
   }
 }
 
+
 .projects {
+
   padding: 7.2pt 10pt;
 
   .project {
@@ -285,37 +287,62 @@ header.my-page-header {
 
   .intro {
     color: $color-dim;
-    margin: calc(2.6 * 57px) 1em 3.5em 0em;
+    margin-top: calc(2.6 * 57px);  /* TODO: this is spacer for logo; move to header/logo */
     font-style: italic;
     display: inline-block;
     font-size: 90%;
 
     strong {
-      font-size: 150%;
+      font-size: 170%;
       color: $color-bright;
     }
   }
 
-  .label-buttons button {
-    margin: 2px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    font-size: 110%;
-    background-color: color($color-dim lightness(+40%));
-    min-width: 3em;
-    padding: 4px 10px;
+  .label-buttons-container {
+    margin: 1.5em 0;
+    border-left: 2px solid $color-bright;
+    border-radius: 6px;
+    padding: 0.5em;
 
-    &.active {
-      background-color: color($color-bright lightness(+30%));
-      border-color:     color($color-bright lightness(+10%));
-      font-size: 130%;
+    .label-buttons-label {
+      font-size: 70%;
       font-weight: bold;
+      color: $color-bright;
     }
-    &:focus {
-      outline:0;
+
+    button {
+      margin-right: 0.5em;
+      margin-top: 0.3em;
+      /* border: 1px solid #aaa; */
+      border: 0;
+      border-radius: 5px;
+      font-size: 110%;
+      min-width: 3em;
+      padding: 4px 10px;
+      background-color: color($color-dim lightness(+50%));
+      vertical-align: top;
+      box-shadow: 1px 1px 3px color($color-dim lightness(+10%));
+
+      &:focus {
+        outline:0;
+      }
+    }
+
+    &.any-active button {
+      background-color: color($color-dim lightness(+43%));
+      font-size: 105%;
+
+      &.active {
+        background-color: color($color-bright lightness(+30%));
+        border: 1px solid color($color-bright lightness(+10%));
+        font-size: 120%;
+        /* font-weight: bold; */
+      }
     }
   }
+
 }
+
 
 .page-header {
   /*position: fixed;*/
