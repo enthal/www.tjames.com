@@ -98,7 +98,6 @@ img#logo-small {  /* TODO: move under .my-page-header */
   }
   @media print {
     transform: scale(2.2) translateX(-1em);
-    /* transform: scale(1.7, 1.3) translateY(15px); */
   }
 }
 
@@ -184,27 +183,30 @@ header.my-page-header {
 
   & + .fixed-header-spacer {
     height: calc(170px + 7em);
-    @media screen and (max-width: 400px) {
-      height: 0;
+    @media screen and (max-width: 415px) {
+      height: calc(170px);
     }
     @media print {
       height: 3em;
     }
   }
 
-  @media screen {
-    &:not(.scrolled) {
+  &:not(.scrolled) {
+    @media screen {
       box-shadow: none;
       transition: box-shadow 0.3s linear;
+    }
 
-      img#logo-small {
-        transform: scale(3.35, 3.35) translateY(25px) translateX(-5px);
-        @media screen and (max-width: 617px) {
-          transform: scale(3, 3) translateY(25px) translateX(-5px);
-        }
-        @media screen and (max-width: 400px) {
-          transform: scale(1.62, 1.62) translateY(25px) translateX(-5px);
-        }
+    img#logo-small {
+      transform: scale(3.35) translateY(25px) translateX(-5px);
+      @media screen and (max-width: 617px) {
+        transform: scale(3) translateY(25px) translateX(-5px);
+      }
+      @media screen and (max-width: 415px) {
+        transform: scale(2) translateY(25px) translateX(-5px);
+      }
+      @media print {
+        transform: scale(2.2) translateX(-1em);
       }
     }
   }
@@ -410,7 +412,7 @@ header.my-page-header {
 }
 
 
-.page-header {
+.page-header {   /* TODO: remove */
   /*position: fixed;*/
   width: 100%;
   border-bottom: 1px solid #eee;
