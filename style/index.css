@@ -255,14 +255,32 @@ header.my-page-header {
   padding: 7.2pt 10pt;
 
   .project {
+    transition:
+      all        0.5s linear,
+      max-height 0.5s cubic-bezier(0,1,0,1);
+    transform-origin: top left;
+
     margin-bottom: 1.2em;
 
-    &:not(.active) {
-      color: #fbb;
-      display: none;
-    }
-    &.active {
-      /* color: green; */
+    @media screen {
+      &:not(.active) {
+        max-height: 0em;         /* for transition, forces flow: lower items slide up */
+        transform: scale(1,0);   /* for transition, shrinks nicely, but doesn't change surrounding layout */
+        opacity: 0;
+        margin: 0;
+      }
+      &.active {
+        transition:
+          all        0.5s linear,
+          max-height 0.5s cubic-bezier(1,0,1,0);  /* cubic-bezier: start super fast to cover distance between effective height and max-height before slowing down */
+
+        /* max-height for transition; measured real layout, but this is a rough guess and subject to content change, oy */
+        @media (min-width: 800px) { max-height: 100em; }
+        @media (min-width: 200px) { max-height: 200em; }
+
+        opacity: 1;
+        /* color: green; */
+      }
     }
   }
 
@@ -299,7 +317,7 @@ header.my-page-header {
   }
 
   .label-buttons-container {
-    margin: 1.5em 0;
+    margin: 1.5em -0.5em;
     border-left: 2px solid $color-bright;
     border-radius: 6px;
     padding: 0.5em;
@@ -311,6 +329,7 @@ header.my-page-header {
     }
 
     button {
+      font-family: 'Oxygen', sans-serif;
       transition: all 0.1s linear;
       margin-right: 0.5em;
       margin-top: 0.3em;
@@ -336,7 +355,7 @@ header.my-page-header {
         background-color: color($color-bright lightness(+30%));
         border: 1px solid color($color-bright lightness(+10%));
         font-size: 120%;
-        /* font-weight: bold; */
+        font-weight: bold;
       }
     }
   }
