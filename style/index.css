@@ -360,6 +360,7 @@ header.my-page-header {
       font-size: 70%;
       font-weight: bold;
       color: $color-bright;
+      &:before { content: "SELECT"; }
     }
 
     button {
