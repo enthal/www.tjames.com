@@ -21,7 +21,7 @@
         labelSet.add(label);
       } )
     });
-    console.log(labelSet, labelSetByProject);
+    console.log({ labelSet, labelSetByProject });
 
     // Create label-selector buttons
     const activeLabelSet = new Set();
@@ -34,17 +34,19 @@
         // Toggle button state
         button.classList.toggle('active');
         activeLabelSet[activeLabelSet.has(label) ? 'delete' : 'add'](label);  // toggle
-        console.log(activeLabelSet.size, activeLabelSet);
 
         // Activate only each project bearing ALL active labels (if any)
+        const activeProjectSet = new Set( projects.filter( project =>
+          !activeLabelSet.size || isSuperset(labelSetByProject.get(project), activeLabelSet)
+        ) );
+        console.log({ activeLabelSet, activeProjectSet });
         projects.forEach( project =>
-          project.classList[
-            !activeLabelSet.size || isSuperset(
-              labelSetByProject.get(project),
-              activeLabelSet
-            ) ? 'add' : 'remove'
-          ]('active')
+          project.classList[ activeProjectSet.has(project) ? 'add' : 'remove' ]('active')
         );
+
+        // Show project match count
+        document.querySelector('#projects-widget .label-buttons-label')
+          .textContent = activeLabelSet.size ? activeProjectSet.size : '';
 
         // Mark .any-active for overall style
         document.querySelector('#projects-widget .label-buttons-container')
