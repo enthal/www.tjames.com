@@ -357,13 +357,22 @@ header.my-page-header {
     padding: 0.5em;
 
     .label-buttons-label {
-      font-size: 70%;
       font-weight: bold;
       color: $color-bright;
       &:before { content: "FILTER"; }
+      &:before, &:after {
+        font-size: 70%;
+        color: $color-bright;
+      }
+
     }
     &.any-active .label-buttons-label {
+      &:before, &:after {
+        font-size: 80%;
+        color: $color-dim;
+      }
       &:before { content: "MATCHED: "; }
+      /* &:after  { content: " PROJECTS"; } */
     }
 
     button {
