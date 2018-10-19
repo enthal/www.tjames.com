@@ -5,6 +5,12 @@
     <span><%= $.recurse(title) %></span>
   </div>
 
+  <div class="project-labels">
+    <% _.each(labels, (label) => {%>
+      <span class="project-label"><%- label %></span>
+    <% }) %>
+  </div>
+
   <div>
     <span class="project-section-label">PROBLEM</span>
     <span><%= $.recurse(problem) %></span>

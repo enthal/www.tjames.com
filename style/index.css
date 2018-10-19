@@ -290,7 +290,8 @@ header.my-page-header {
       max-height 0.5s cubic-bezier(0,1,0,1);
     transform-origin: top left;
 
-    margin-bottom: 1.2em;
+    border-top: 1px solid $color-bright;
+    margin-top: 3em;
 
     @media screen {
       &:not(.active) {
@@ -317,26 +318,43 @@ header.my-page-header {
         display: none;
       }
     }
-  }
-
-  .project-section-label {
-    font-family: 'Oxygen', sans-serif;
-    font-weight: bold;
-    color: #777;
-    font-size: 130%;
-    margin-top: 0.3em;
-    margin-right: 0.5em;
-    display: inline-block;
-  }
-
-  .project-head {
-    font-size: 110%;
 
     .project-section-label {
-      color: $color-bright;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: bold;
+      color: #777;
       font-size: 130%;
+      margin-top: 0.3em;
+      margin-right: 0.5em;
+      display: inline-block;
+    }
+
+    .project-head {
+      font-size: 110%;
+
+      .project-section-label {
+        color: $color-bright;
+        font-size: 130%;
+        border-top: 4px solid $color-bright;
+        margin-top: -5px;
+      }
+    }
+
+    .project-labels {
+      margin: 0.2em 0 0.4em 0;
+    }
+    .project-label {
+      display: inline-block;
+      color: $color-dim;
+      background-color: color($color-bright lightness(+40%));
+      border: 1px solid color($color-bright lightness(+20%));
+      border-radius: 5px;
+      padding: 0.1em 0.6em;
+      margin: 0.2em 0.3em 0 0;
+      font-size: 80%
     }
   }
+
 
   .intro {
     color: $color-dim;
@@ -352,8 +370,8 @@ header.my-page-header {
 
   .label-buttons-container {
     margin: 1.5em -0.5em;
-    border-left: 2px solid $color-bright;
-    border-radius: 6px;
+    border-left: 3px solid $color-bright;
+    border-radius: 12px;
     padding: 0.5em;
 
     .label-buttons-label {
