@@ -11,52 +11,68 @@
 <script>
     const projects = Array.from(document.querySelectorAll('#projects-widget .project'));
 
-    // Collect unique labels across projects, indexing projects by label, and labels by project
+    // Collect unique labels across projects, indexing labels by project
     const labelSet = new Set();
-    const labelSetByProject = new Map();
+    const labelSetsByProject = new Map();
     projects.forEach( project => {
       const projectLabelSet = new Set(project.attributes.labels.value.split(/\s+/));
-      labelSetByProject.set(project, projectLabelSet);
+      labelSetsByProject.set(project, projectLabelSet);
       projectLabelSet.forEach( label => {
         labelSet.add(label);
       } )
     });
-    console.log({ labelSet, labelSetByProject });
+    console.log({ labelSet, labelSetsByProject });
+
+    // Control base state
+    const activeLabelSet = new Set();
 
     // Create label-selector buttons
-    const activeLabelSet = new Set();
+    const buttonsByLabel = new Map();
     labelSet.forEach(label => {
       const button = document.createElement('button');
+      buttonsByLabel.set(label, button);
       button.innerText = label;
 
       button.addEventListener('click', () => {
-
-        // Toggle button state
-        button.classList.toggle('active');
         activeLabelSet[activeLabelSet.has(label) ? 'delete' : 'add'](label);  // toggle
-
-        // Activate only each project bearing ALL active labels (if any)
-        const activeProjectSet = new Set( projects.filter( project =>
-          !activeLabelSet.size || isSuperset(labelSetByProject.get(project), activeLabelSet)
-        ) );
-        console.log({ activeLabelSet, activeProjectSet });
-        projects.forEach( project =>
-          project.classList[ activeProjectSet.has(project) ? 'add' : 'remove' ]('active')
-        );
-
-        // Show project match count
-        document.querySelector('#projects-widget .label-buttons-label')
-          .textContent = activeLabelSet.size ? activeProjectSet.size : '';
-
-        // Mark .any-active for overall style
-        document.querySelector('#projects-widget .label-buttons-container')
-          .classList[activeLabelSet.size ? 'add' : 'remove']('any-active');
-
+        applyActiveLabels();
         // TODO: track in google analytics
       });
 
       document.querySelector('#projects-widget .label-buttons').appendChild( button );
     });
+
+    const applyActiveLabels = () => {
+      // Apply activeLabelSet to DOM
+
+      buttonsByLabel.forEach( (button, label) =>
+        button.classList[ activeLabelSet.has(label) ? 'add' : 'remove' ]('active')
+      );
+
+      if (window.URL) {  // not IE
+        const searchParams = (new URL(document.location)).searchParams
+        searchParams.delete('l');
+        activeLabelSet.forEach( label => searchParams.append('l',label) );
+        history.replaceState(null,null, '?'+searchParams);
+      }
+
+      // Activate only each project bearing ALL active labels (if any)
+      const activeProjectSet = new Set( projects.filter( project =>
+        !activeLabelSet.size || isSuperset(labelSetsByProject.get(project), activeLabelSet)
+      ) );
+      console.log({ activeLabelSet, activeProjectSet });
+      projects.forEach( project =>
+        project.classList[ activeProjectSet.has(project) ? 'add' : 'remove' ]('active')
+      );
+
+      // Show project match count
+      document.querySelector('#projects-widget .label-buttons-label')
+        .textContent = activeLabelSet.size ? activeProjectSet.size : '';
+
+      // Mark .any-active for overall style
+      document.querySelector('#projects-widget .label-buttons-container')
+        .classList[activeLabelSet.size ? 'add' : 'remove']('any-active');
+    }
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set#Implementing_basic_set_operations
     function isSuperset(set, subset) {
@@ -66,5 +82,13 @@
           }
       }
       return true;
+    }
+
+    // apply searchParams 'l' as activeLabelSet labels
+    if (window.URL) {  // not IE
+      (new URL(document.location)).searchParams.getAll('l').forEach(
+        label => console.log("activate", label) || activeLabelSet.add(label)
+      );
+      applyActiveLabels();
     }
 </script>
