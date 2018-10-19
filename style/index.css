@@ -280,6 +280,43 @@ header.my-page-header {
 }
 
 
+.home-page-content {
+  position: relative;
+
+  .see-projects {
+    transition:
+      all        0.5s linear;
+
+    position: absolute;
+    right: 0;
+    border: 1px solid $color-bright;
+    padding: 20px 0.5em 20px 100px;
+    margin-top: -40px;
+    background-color: color($color-bright lightness(+40%));
+    border: 2px solid color($color-bright lightness(+0%));
+    border-radius: 50px 0 0 50px;
+    border-right: none;
+    font-size: 120%;
+    color: color($color-dim lightness(-10%));
+    @media screen { text-decoration: underline; }
+    strong {
+      font-size: 120%;
+      padding-left: 0.5em;
+      vertical-align: middle;
+      font-weight: normal;
+      /* color: $color-bright; */
+    }
+
+    &:hover {
+      background-color: color($color-bright lightness(+35%));
+      border: 2px solid color($color-bright lightness(+0%));
+      border-right: none;
+      transition:
+        all        0.05s linear;
+    }
+  }
+}
+
 .projects {
 
   padding: 7.2pt 10pt;
@@ -465,6 +502,18 @@ header.my-page-header {
     font-family: 'Oxygen', sans-serif;
     letter-spacing: 0.15em;
     font-size: 150%;
+  }
+}
+
+
+.per-medias {
+  &[onclick] {
+    cursor: pointer;
+  }
+  .per-media {
+    display: none;
+    &.per-media--screen { @media screen { display: block; } }
+    &.per-media--print  { @media print  { display: block; } }
   }
 }
 

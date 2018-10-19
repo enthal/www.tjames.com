@@ -5,7 +5,7 @@
     - $ref: header
 
     - $t: div
-      classStr: centered-glory
+      classStr: centered-glory home-page-content
       content:
         - $t: div
           classStr: tagline
@@ -29,6 +29,14 @@
               Is your team committed to vision but hitting a wall?  Great teams sometimes need help to meet systems challenges.
               I can lead—and mentor—your people to mastery.
 
+        - $t: per-media
+          options:
+            classStr: see-projects
+            href: /projects
+          contents:
+            screen: _Explore featured projects_ ...
+            print:  "Featured projects ➔ **tjames.com/projects**"
+
         - $t: div
           classStr: spaciousness
           content: |-
@@ -48,6 +56,12 @@
         - $t: columns
           classStr: display-boxes
           columns:
-            - |-
-              ## Let's talk today
-              [Email](mailto:getstarted@tjames.com) • [415-305-0247](tel:415-305-0247) • San Francisco Bay Area
+            - $t: per-media
+              options: {}
+              contents:
+                screen: |-
+                  ## Let's talk today
+                  [Email](mailto:getstarted@tjames.com) • [415-305-0247](tel:415-305-0247) • San Francisco Bay Area
+                print: |-
+                  ## Let's talk today
+                  lets-talk@tjames.com • 415-305-0247 • San Francisco Bay Area
