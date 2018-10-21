@@ -443,6 +443,12 @@ header.my-page-header {
       background-color: color($color-dim lightness(+50%));
       vertical-align: top;
       box-shadow: 1px 1px 3px color($color-dim lightness(+10%));
+      &:hover {
+        background-color: color($color-dim lightness(+53%));
+        /* font-size: 115%; */
+        transform: scale(1.05); /* translateY(-1px);*/
+        box-shadow: 1.5px 1.5px 5px color($color-dim lightness(+15%));
+      }
 
       &:focus {
         outline:0;
@@ -450,8 +456,11 @@ header.my-page-header {
     }
 
     &.any-active button {
-      background-color: color($color-dim lightness(+43%));
       font-size: 105%;
+      background-color: color($color-dim lightness(+43%));
+      &:hover {
+        background-color: color($color-dim lightness(+48%));
+      }
 
       &.active {
         background-color: color($color-bright lightness(+30%));
