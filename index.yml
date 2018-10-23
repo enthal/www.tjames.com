@@ -42,8 +42,7 @@
         - $t: div
           classStr: intro
           content: |-
-            I owned the **projects** listed here
-            [for Change.org, between February 2012 and May 2015](https://www.linkedin.com/in/timjamestim).
+            These **projects** represent my work since 2012.
 
         - $t: projects-widget
           projects:
