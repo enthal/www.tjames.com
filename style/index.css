@@ -367,7 +367,12 @@ header.my-page-header {
     }
 
     .project-head {
+      display: flex;
       font-size: 110%;
+
+      .project-head-left {
+        flex-grow: 1;
+      }
 
       .project-section-label {
         color: $color-bright;
@@ -392,7 +397,6 @@ header.my-page-header {
     }
 
     .project-details {
-      float: right;
       border-left:   1px solid $color-dim;
       border-bottom: 1px solid $color-dim;
       border-bottom-left-radius: 20px;

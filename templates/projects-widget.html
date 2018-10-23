@@ -17,20 +17,22 @@
   const renderProject = (project) => { %>
     <div class="project active" labels="<%- project.labels.join(' ') %>">
 
-      <div class="project-details">
-        <div class="project-details-logo"><img src="<%- clientsByName[project.details.client].logoUrl %>" /></div>
-        <div class="project-details-when"><%-   project.details.when %></div>
-      </div>
-
       <div class="project-head">
-        <span class="project-section-label">PROJECT</span>
-        <span><%= $.recurse(project.title) %></span>
-      </div>
-
-      <div class="project-labels">
-        <% _.each(project.labels, (label) => {%>
-          <span class="project-label"><%- label %></span>
-        <% }) %>
+        <div class="project-head-left">
+          <div class="project-head-section">
+            <span class="project-section-label">PROJECT</span>
+            <span><%= $.recurse(project.title) %></span>
+          </div>
+          <div class="project-labels">
+            <% _.each(project.labels, (label) => {%>
+              <span class="project-label"><%- label %></span>
+            <% }) %>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="project-details-logo"><img src="<%- clientsByName[project.details.client].logoUrl %>" /></div>
+          <div class="project-details-when"><%-   project.details.when %></div>
+        </div>
       </div>
 
       <div>
