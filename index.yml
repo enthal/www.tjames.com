@@ -48,3 +48,10 @@
         - $t: projects-widget
           projects:
             $include: content/projects.yml
+          clients:
+            - name: change-dot-org
+              label: Change.org
+              logoUrl: https://upload.wikimedia.org/wikipedia/commons/b/b0/Change.org_logo.svg
+              when:
+                - Feb 2012
+                - May 2015

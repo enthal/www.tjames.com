@@ -9,6 +9,9 @@
     - sql-db
     - cloud
     - leadership
+  details:
+    client: change-dot-org
+    when: "2015"
   problem: |-
     Legacy system frequently failed, and failed silently, to deliver vital leads to customers&mdash;with 80% of company revenue in lead generation. &nbsp;
     Leads sometimes double-delivered or double billed. &nbsp;
@@ -40,6 +43,9 @@
     - cloud
     - ui
     - leadership
+  details:
+    client: change-dot-org
+    when: "2012"
   problem: |-
     Change.org&rsquo;s manual email targeting tools and processes were delivering significantly sub-optimal results and thwarted scaling user base, content base (petitions), professional campaign staff, and international expansion. &nbsp;
     These manually targeted mass emails drove 80% of traffic and thus revenue. &nbsp;
@@ -62,6 +68,9 @@
     - sql-db
     - cloud
     - leadership
+  details:
+    client: change-dot-org
+    when: "2013"
   problem: |-
     Emergent performance collapse for heavy analytics queries on legacy disk-based MySQL slave/replica of huge production DB.
   solution: |-
@@ -78,6 +87,9 @@
   labels:
     - data-engineering
     - ui
+  details:
+    client: change-dot-org
+    when: "2014"
   title: |-
     High-throughput **fraud analysis tool** –
     _primary engineer, inception to full production_
