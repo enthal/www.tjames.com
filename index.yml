@@ -55,3 +55,9 @@
               when:
                 - Feb 2012
                 - May 2015
+            - name: capital-one
+              label: Capital One
+              logoUrl: https://upload.wikimedia.org/wikipedia/commons/9/98/Capital_One_logo.svg
+              when:
+                - Aug 2015
+                - Nov 2016
