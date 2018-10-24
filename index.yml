@@ -42,7 +42,7 @@
         - $t: div
           classStr: intro
           content: |-
-            These **projects** represent my work since 2012.
+            These **projects** represent my work since 2012.  I have made software professionally since 1998.
 
         - $t: projects-widget
           projects:
