@@ -29,9 +29,11 @@
             <% }) %>
           </div>
         </div>
-        <div class="project-details">
-          <div class="project-details-logo"><img src="<%- clientsByName[project.details.client].logoUrl %>" /></div>
-          <div class="project-details-when"><%-   project.details.when %></div>
+        <div class="project-details-container">
+          <div class="project-details" ontouchstart>
+            <div class="project-details-logo"><img src="<%- clientsByName[project.details.client].logoUrl %>" /></div>
+            <div class="project-details-when"><%-   project.details.when %></div>
+          </div>
         </div>
       </div>
 
