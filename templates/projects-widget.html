@@ -39,21 +39,26 @@
 
       <div>
         <span class="project-section-label">PROBLEM</span>
-        <span><%= $.recurse(project.problem) %></span>
+        <span><%= handleSection(project.problem) %></span>
       </div>
 
       <div>
         <span class="project-section-label">SOLUTION</span>
-        <span><%= $.recurse(project.solution) %></span>
+        <span><%= handleSection(project.solution) %></span>
       </div>
 
       <div>
         <span class="project-section-label">RESULTS</span>
-        <span><%= $.recurse(project.results) %></span>
+        <span><%= handleSection(project.results) %></span>
       </div>
 
     </div>
   <% }
+
+  const handleSection = x => {
+    if (!_.isArray(x))  x = [x];
+    return _.map(x, xx => $.recurse(xx)).join('&nbsp; ');
+  }
 
   render();
 %>

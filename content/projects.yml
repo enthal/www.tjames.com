@@ -45,10 +45,10 @@
     when: "2016"
   problem: |-
     Legacy system provided cumbersome workflow, difficult cross-team content integration, and limited presentation control. &nbsp;
-    Production deployments were risky and on a slow cycle. &nbsp;
+    Production deployments were risky and slow-cycle. &nbsp;
     This sharply limited the ability of teams across this Fortune 500 enterprise to engage on the web with potential new customers. &nbsp;
     Building content at this scale in the face of needed legal and regulatory constraints made off the shelf solutions a poor fit. &nbsp;
-    Newly acquired team of sharp web engineers weren't ready to tackle architecting a key platform with so much on the line. &nbsp;
+    Newly acquired team of sharp web engineers weren't ready to tackle architecting a key platform with so much at stake. &nbsp;
   solution: |-
     We created the Andromeda Platform, delivering streamlined deployment and easy content creation—putting engineers and content editors across the enterprise in control. &nbsp;
     The team and I passionately provided internal customers with platform products that work together, out of the box, with easy and safe customization. &nbsp;
@@ -58,6 +58,30 @@
     Tech: Node.js, Angular.js, HTML5/CSS3, AWS (EC2, S3, CloudFront, CloudFormation, AutoScaling, ELB, CloudWatch, IAM policies), Docker. &nbsp;
   results: |-
     Teams were freed to drive business on the web, to customize and modify the platform as they needed, while still deploying safely to the capitalone.com website. &nbsp;
+
+- title: |-
+    Mobile **medical data-collection, reporting, billing-integration** system –
+    _principal engineer, architect_
+  labels:
+    - ui
+    - integation
+    - cloud
+  details:
+    client: abc
+    when: "2017"
+  problem:
+    - Client had deep industry experience and sufficient seed funding, needing only a truly effective product.
+    - Product had to precisely fit anesthesia-providersʼ data-management workflows during the high-intesity, time-critical, risk-driven reality of medical procedures — across UX subtleties, regulatory requirements, and billing integration.
+  solution:
+    - Analyzed business/product needs to determine what was truly essential to get to market.
+    - Designed and built a React-native mobile app automating anesthesia data collection, visually-complex PDF report generation, and submission to billing.
+    - Google firebase and functions for cloud state and asynchronous integeration flows.
+    - "The key here was building the right thing: translating the nuances of pracitioner mindset into a realized system, and sharply focusing features and methods on go-to-market."
+  results:
+    - Customers, as medical professionals, love the streamlined experience compared to typical paper forms, and trust the app to help them stay focused during procedures.
+    - Billing integration and reporting make them first in line for payment while cutting out hassle around regulatory requirements.
+    - These professionals have become enthusiastic evangelists for the product.
+    - Client is off and running in the market.
 
 - title: |-
     **Machine learning-driven recommender** system –
