@@ -50,47 +50,29 @@ a:visited { color: #888; }
       border-bottom: 2px solid $color-bright
     }
   }
-}
 
-img#logo-big {
-  opacity: 0.1;
-  transform: scale(1.1, 1) translateY(15px);
-  transition: all 0.5s ;
-
-  &.shown {
-    opacity: 1;
-    transform: scale(0.98) translateY(0);
-  }
-  &.shown:hover {
-    transform: scale(1) translateY(-3px);
-  }
-
-  /* Can't use % widths, due to the needed parent widths */
-  @media screen {
-    & { width:617px; }
-  }
-  @media screen and (max-width: 617px) {
-    & { width:400px; }
-  }
-  @media screen and (max-width: 400px) {
-    & { width:320px; }
+  @media print {
+    display: none;
   }
 }
 
-img#logo-small {
-  opacity: 0;
+img#logo-small {  /* TODO: move under .my-page-header */
   transform-origin: top left;
-  transform: scale(1.7, 1.3) translateY(15px);
   transition: all 0.5s ease-in;
 
-  &.shown {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+  @media screen {
+    opacity: 0;
+    &.shown {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    &.shown:hover {   /* overridden by header.my-page-header:not(.scrolled), below; TODO fix */
+      transform: scale(1.1) translateY(-3px);
+      transition: all 0.1s linear;
+    }
   }
-
-  &.shown:hover {
-    transform: scale(1.1) translateY(-3px);
-    transition: all 0.1s linear;
+  @media print {
+    transform: scale(2.2) translateX(-1em);
   }
 }
 
@@ -108,7 +90,7 @@ img#logo-small {
     font-family: 'Oxygen', sans-serif;
     font-size: 135%;
     color: $color-dim;
-    margin: calc(3.35 * 57px) 1em 3.5em 1em;
+    margin: 1em 1em 3.5em 1em;
     ul {
       padding: 0;
       margin: 0;
@@ -141,14 +123,16 @@ header.my-page-header {
   background-color: white;
   width: 100%;
   height: 57px;
-  box-shadow: 0px 1px 10px #5E5E5E;
-  position: fixed;
-  top: 0px;
   margin: auto;
   z-index: 1000;
   transition:
     all 0.5s ease-in,
     box-shadow 0.6s linear 0.4s;
+  @media screen {
+    box-shadow: 0px 1px 10px #5E5E5E;
+    position: fixed;
+    top: 0px;
+  }
 
   img {
     /*width:  114px;*/
@@ -173,23 +157,34 @@ header.my-page-header {
   }
 
   & + .fixed-header-spacer {
-    height: calc(57px + 20px + 3em);
-    @media screen and (max-width: 400px) {
-      height: 0;
+    height: calc(170px + 7em);
+    @media screen and (max-width: 415px) {
+      height: calc(170px);
+    }
+    @media print {
+      height: 3em;
     }
   }
 
   &:not(.scrolled) {
-    box-shadow: none;
-    transition: box-shadow 0.3s linear;
+    @media screen {
+      box-shadow: none;
+      transition: box-shadow 0.3s linear;
+    }
 
     img#logo-small {
-      transform: scale(3.35, 3.35) translateY(25px) translateX(-5px);
+      transform: scale(3.35) translateY(25px) translateX(-5px);
       @media screen and (max-width: 617px) {
-        transform: scale(3, 3) translateY(25px) translateX(-5px);
+        transform: scale(3) translateY(25px) translateX(-5px);
       }
-      @media screen and (max-width: 400px) {
-        transform: scale(1.62, 1.62) translateY(25px) translateX(-5px);
+      @media screen and (max-width: 415px) {
+        transform: scale(2) translateY(25px) translateX(-5px);
+      }
+      @media screen and (max-width: 350px) {
+        transform: scale(1.85) translateY(25px) translateX(-5px);
+      }
+      @media print {
+        transform: scale(2.2) translateX(-1em);
       }
     }
   }
@@ -221,6 +216,19 @@ header.my-page-header {
     margin-right: -3px;
     /*color: white;
     background-color: black;*/
+    @media print {
+      display: none;
+    }
+  }
+
+  .print-info {
+    @media screen {
+      display: none;
+    }
+    @media print {
+      text-align: right;
+      padding-top: 0.5em;
+    }
   }
 }
 
@@ -249,47 +257,274 @@ header.my-page-header {
   }
 }
 
+
+.home-page-content {
+  position: relative;
+
+  .see-projects {
+    transition:
+      all        0.5s linear;
+
+    position: absolute;
+    right: 0;
+    border: 1px solid $color-bright;
+    padding: 20px 0.5em 20px 100px;
+    margin-top: -40px;
+    background-color: color($color-bright lightness(+40%));
+    border: 2px solid color($color-bright lightness(+0%));
+    border-radius: 50px 0 0 50px;
+    border-right: none;
+    font-size: 120%;
+    color: color($color-dim lightness(-10%));
+    @media screen { text-decoration: underline; }
+    strong {
+      font-size: 120%;
+      padding-left: 0.5em;
+      vertical-align: middle;
+      font-weight: normal;
+      /* color: $color-bright; */
+    }
+
+    &:hover {
+      background-color: color($color-bright lightness(+35%));
+      border: 2px solid color($color-bright lightness(+0%));
+      border-right: none;
+      transition:
+        all        0.05s linear;
+    }
+  }
+}
+
 .projects {
+
   padding: 7.2pt 10pt;
 
   .project {
-    margin-bottom: 1.2em;
-  }
+    transition:
+      all        0.5s linear,
+      max-height 0.5s cubic-bezier(0,1,0,1);
+    transform-origin: top left;
 
-  .project-section-label {
-    font-family: 'Oxygen', sans-serif;
-    font-weight: bold;
-    color: #777;
-    font-size: 130%;
-    margin-top: 0.3em;
-    margin-right: 0.5em;
-    display: inline-block;
-  }
+    border-top: 1px solid $color-bright;
+    margin-top: 3em;
 
-  .project-head {
-    font-size: 110%;
+    @media screen {
+      &:not(.active) {
+        max-height: 0em;         /* for transition, forces flow: lower items slide up */
+        transform: scale(1,0);   /* for transition, shrinks nicely, but doesn't change surrounding layout */
+        opacity: 0;
+        margin: 0;
+      }
+      &.active {
+        transition:
+          all        0.5s linear,
+          max-height 0.5s cubic-bezier(1,0,1,0);  /* cubic-bezier: start super fast to cover distance between effective height and max-height before slowing down */
+
+        /* max-height for transition; measured real layout, but this is a rough guess and subject to content change, oy */
+        @media (min-width: 800px) { max-height: 100em; }
+        @media (min-width: 200px) { max-height: 200em; }
+
+        opacity: 1;
+        /* color: green; */
+      }
+    }
+    @media print {
+      &:not(.active) {
+        display: none;
+      }
+    }
 
     .project-section-label {
-      color: $color-bright;
+      font-family: 'Oxygen', sans-serif;
+      font-weight: bold;
+      color: #777;
       font-size: 130%;
+      margin-top: 0.3em;
+      margin-right: 0.5em;
+      display: inline-block;
+    }
+
+    .project-head {
+      display: flex;
+      font-size: 110%;
+
+      .project-head-left {
+        flex-grow: 1;
+      }
+
+      .project-section-label {
+        color: $color-bright;
+        font-size: 130%;
+        border-top: 4px solid $color-bright;
+        margin-top: -5px;
+      }
+    }
+
+    .project-labels {
+      margin: 0.2em 0 0.4em 0;
+    }
+    .project-label {
+      display: inline-block;
+      color: $color-dim;
+      background-color: color($color-bright lightness(+40%));
+      border: 1px solid color($color-bright lightness(+20%));
+      border-radius: 5px;
+      padding: 0.1em 0.6em;
+      margin: 0.2em 0.3em 0 0;
+      font-size: 80%
+    }
+
+    .project-details {
+      border-left:   1px solid $color-dim;
+      border-bottom: 1px solid $color-dim;
+      border-bottom-left-radius: 20px;
+      padding: 0.6em;
+      margin-left: 1em;
+      margin-top: 1px;
+      text-align: right;
+      background-color: #EEE;
+
+      img {
+        max-width:  160px;
+        max-height: 160px;
+      }
+      .project-details-when {
+        font-size: 120%;
+        font-weight: bold;
+        color: color($color-dim lightness(-20%));
+      }
+
+      filter: grayscale(100%) opacity(66%);
+      transition: all 0.6s linear;
+      &:hover, &:active {
+        filter: grayscale(0%);
+        transition: all 0.2s linear;
+      }
+    }
+
+    @media (max-width:415px) {
+      .project-head {
+        flex-direction: column;
+      }
+      .project-details-container {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0.5em 0;
+      }
+      .project-details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.8em 0.5em;
+        border-top: 1px solid $color-dim;
+        border-top-left-radius: 20px;
+        /* width: 80%; */
+        align-items: center;
+        & > * {
+          padding: 0 0.5em;
+        }
+      }
     }
   }
 
+
   .intro {
     color: $color-dim;
-    margin: calc(2.6 * 57px) 1em 3.5em 0em;
     font-style: italic;
     display: inline-block;
     font-size: 90%;
 
     strong {
-      font-size: 150%;
+      font-size: 170%;
       color: $color-bright;
     }
   }
+
+  .label-buttons-container {
+    margin: 1.5em -0.5em;
+    border-left: 3px solid $color-bright;
+    border-radius: 12px;
+    padding: 0.5em;
+
+    .label-buttons-label {
+      font-weight: bold;
+      color: $color-bright;
+      &:before { content: "FILTER"; }
+      &:before, &:after {
+        font-size: 70%;
+        color: $color-bright;
+      }
+
+    }
+    &.any-active .label-buttons-label {
+      &:before, &:after {
+        font-size: 80%;
+        color: $color-dim;
+      }
+      &:before { content: "MATCHED: "; }
+      /* &:after  { content: " PROJECTS"; } */
+    }
+
+    button {
+      font-family: 'Oxygen', sans-serif;
+      transition: all 0.1s linear;
+      margin-right: 0.5em;
+      margin-top: 0.3em;
+      border: 0px solid $color-bright;
+      border-radius: 5px;
+      font-size: 110%;
+      min-width: 3em;
+      padding: 4px 10px;
+      background-color: color($color-dim lightness(+50%));
+      vertical-align: top;
+      box-shadow: 1px 1px 3px color($color-dim lightness(+10%));
+      &:hover {
+        background-color: color($color-dim lightness(+53%));
+        /* font-size: 115%; */
+        transform: scale(1.05); /* translateY(-1px);*/
+        box-shadow: 1.5px 1.5px 5px color($color-dim lightness(+15%));
+      }
+
+      &:focus {
+        outline:0;
+      }
+    }
+
+    &.any-active button {
+      font-size: 105%;
+      background-color: color($color-dim lightness(+43%));
+      &:hover {
+        background-color: color($color-dim lightness(+48%));
+      }
+
+      &.active {
+        background-color: color($color-bright lightness(+30%));
+        border: 1px solid color($color-bright lightness(+10%));
+        font-size: 120%;
+        font-weight: bold;
+      }
+      @media print {
+        font-size: 110%;
+        &:not(.active) {
+          display: none;
+        }
+      }
+    }
+
+    @media print {
+      &:not(.any-active) {
+        /* display: none; */
+        visibility: hidden;
+        height: 0;
+        padding: 0;
+      }
+    }
+  }
+
 }
 
-.page-header {
+
+.page-header {   /* TODO: remove */
   /*position: fixed;*/
   width: 100%;
   border-bottom: 1px solid #eee;
@@ -315,6 +550,18 @@ header.my-page-header {
 }
 
 
+.per-medias {
+  &[onclick] {
+    cursor: pointer;
+  }
+  .per-media {
+    display: none;
+    &.per-media--screen { @media screen { display: block; } }
+    &.per-media--print  { @media print  { display: block; } }
+  }
+}
+
+
 
 @lost flexbox flex;
 .lostgrid { lost-center: 980px; }  /* uh oh, what max width? */
@@ -324,6 +571,6 @@ header.my-page-header {
 .lostgrid-columns-4 > * { lost-column: 1/4; }
 .lostgrid-columns-5 > * { lost-column: 1/5; }
 .lostgrid-columns-6 > * { lost-column: 1/6; }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 630px) {
   .lostgrid > * { lost-column: 1/1; }
 }

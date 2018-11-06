@@ -1,0 +1,18 @@
+
+<% if (options.href) { %>
+  <a href="<%- options.href %>">
+<% } %>
+
+<div class="per-medias <%- options.classStr || '' %>">
+
+  <% _.each(contents, (content, mediaClass) => { %>
+    <div class="per-media per-media--<%- mediaClass %>">
+      <%= $.recurse(content) %>
+    </div>
+  <% } ) %>
+
+</div>
+
+<% if (options.href) { %>
+  </a>
+<% } %>

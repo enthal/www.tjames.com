@@ -1715,7 +1715,7 @@ tcomb@^2.5.1:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/tcomb/-/tcomb-2.7.0.tgz#10d62958041669a5d53567b9a4ee8cde22b1c2b0"
 
-"temple-cms@file:../temple":
+"temple-cms@file:../temple-cms":
   version "1.0.0"
   dependencies:
     bluebird "^3.5.0"

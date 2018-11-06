@@ -1,0 +1,67 @@
+- $t: page
+  $path: index.html
+  title: Solutions/Systems Architect • Full-stack app dev • by contract
+  body:
+    - $ref: header
+
+    - $t: div
+      classStr: centered-glory home-page-content
+      content:
+        - $t: div
+          classStr: tagline
+          content: |-
+            - Solutions and Systems **Architect**.
+            - Full-stack, web, and back-end JavaScript Applications **Developer**.
+            - **Twenty years** experience.  San Francisco Bay Area.
+
+        - $t: columns
+          classStr: display-boxes
+          columns:
+            - |-
+              ## Architecture
+              Mapping business needs to system properties to technology choices and end-to-end execution.
+            - |-
+              ## Applications
+              Sophisticated full-stack, scalable applications on Node.js, React, AWS Cloud, SQL DBs, Google Firebase, and more.
+              The _right_ application to take your business further.
+            - |-
+              ## Leadership
+              Is your team committed to vision but hitting a wall?  Great teams sometimes need help to meet systems challenges.
+              I can lead—and mentor—your people to mastery.
+
+        - $t: per-media
+          options:
+            classStr: see-projects
+            href: /projects
+          contents:
+            screen: _Explore featured projects_ ...
+            print:  "Featured projects ➔ **tjames.com/projects**"
+
+        - $t: div
+          classStr: spaciousness
+          content: |-
+
+            # Systems and Applications
+            - Resilient distributed systems, sophisticated real-time web apps, complex multi-party integrations.
+            - UIs that powerfully connect users in real-time to intricate and ever-changing spaces of data—and to each other.
+            - Systems with exactly the right properties and tradeoffs—across throughput, latency, resilience, security, scaling, and more.
+            - Tools and products tailored to the subtle nuances of stakeholder needs.
+            - Node.js, AWS Cloud, React, AngularJS, Google Firebase, PostgreSQL, Docker, ...
+
+            # Technical Leadership
+            - If you’ve got a dev team, I can provide them the guidance and mentorship that leads to mastery of the right mindset and techniques for the project.
+            - This can be a watershed experience in their own professional development—the kind of thing that forges team bonds and cements their loyalty to your company.
+            - This investment in their growth can help make your company a truly great place to work, and that’s what it takes to attract and retain top talent.
+
+        - $t: columns
+          classStr: display-boxes
+          columns:
+            - $t: per-media
+              options: {}
+              contents:
+                screen: |-
+                  ## Let's talk today
+                  [Email](mailto:getstarted@tjames.com) • [415-305-0247](tel:415-305-0247) • San Francisco Bay Area
+                print: |-
+                  ## Let's talk today
+                  lets-talk@tjames.com • 415-305-0247 • San Francisco Bay Area

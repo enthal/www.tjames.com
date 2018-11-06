@@ -1,0 +1,62 @@
+
+- $globals:
+
+    header:
+      $t: header
+      menuItems:
+        - name: Projects
+          url: /projects/
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/timjamestim
+        - name: Email
+          url: mailto:letsdothis@tjames.com
+        - name: 415-305-0247
+          url: tel:415-305-0247
+      printInfo:
+        - tjames.com
+        - connect@tjames.com
+        - 415-305-0247
+
+
+- $include: content/home.yml
+
+- $t: redirect
+  $path: offering/index.html
+  toUrl: /
+
+
+- $t: redirect    # TODO automate?
+  $path: projects.html
+  toUrl: /projects/
+
+- $t: page
+  $path: projects/index.html
+  title: Featured Projects
+  body:
+    - $ref: header
+
+    - $t: div
+      classStr: projects centered-glory
+      content:
+
+        - $t: div
+          classStr: intro
+          content: |-
+            These **projects** represent my work since 2012.  I have made software professionally since 1998.
+
+        - $t: projects-widget
+          projects:
+            $include: content/projects.yml
+          clients:
+            - name: change-dot-org
+              label: Change.org
+              logoUrl: https://upload.wikimedia.org/wikipedia/commons/b/b0/Change.org_logo.svg
+              when:
+                - Feb 2012
+                - May 2015
+            - name: capital-one
+              label: Capital One
+              logoUrl: https://upload.wikimedia.org/wikipedia/commons/9/98/Capital_One_logo.svg
+              when:
+                - Aug 2015
+                - Nov 2016

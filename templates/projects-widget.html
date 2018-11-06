@@ -1,0 +1,144 @@
+
+<%
+  const render = () => { %>
+    <div id="projects-widget" class="projects-widget">
+      <div class="label-buttons-container">
+        <span class="label-buttons-label"></span>
+        <div class="label-buttons"></div>
+      </div>
+      <div>
+        <% _.each(projects, renderProject) %>
+      </div>
+    </div>
+  <% }
+
+
+  const clientsByName = _.fromPairs(_.map(clients, x => [x.name, x]));
+  const renderProject = (project) => { %>
+    <div class="project active" labels="<%- project.labels.join(' ') %>">
+
+      <div class="project-head">
+        <div class="project-head-left">
+          <div class="project-head-section">
+            <span class="project-section-label">PROJECT</span>
+            <span><%= $.recurse(project.title) %></span>
+          </div>
+          <div class="project-labels">
+            <% _.each(project.labels, (label) => {%>
+              <span class="project-label"><%- label %></span>
+            <% }) %>
+          </div>
+        </div>
+        <div class="project-details-container">
+          <div class="project-details" ontouchstart>
+            <div class="project-details-logo"><img src="<%- clientsByName[project.details.client].logoUrl %>" /></div>
+            <div class="project-details-when"><%-   project.details.when %></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="project-section-label">PROBLEM</span>
+        <span><%= $.recurse(project.problem) %></span>
+      </div>
+
+      <div>
+        <span class="project-section-label">SOLUTION</span>
+        <span><%= $.recurse(project.solution) %></span>
+      </div>
+
+      <div>
+        <span class="project-section-label">RESULTS</span>
+        <span><%= $.recurse(project.results) %></span>
+      </div>
+
+    </div>
+  <% }
+
+  render();
+%>
+
+<script>
+    const projects = Array.from(document.querySelectorAll('#projects-widget .project'));
+
+    // Collect unique labels across projects, indexing labels by project
+    const labelSet = new Set();
+    const labelSetsByProject = new Map();
+    projects.forEach( project => {
+      const projectLabelSet = new Set(project.attributes.labels.value.split(/\s+/));
+      labelSetsByProject.set(project, projectLabelSet);
+      projectLabelSet.forEach( label => {
+        labelSet.add(label);
+      } )
+    });
+    console.log({ labelSet, labelSetsByProject });
+
+    // Control base state
+    const activeLabelSet = new Set();
+
+    // Create label-selector buttons
+    const buttonsByLabel = new Map();
+    labelSet.forEach(label => {
+      const button = document.createElement('button');
+      buttonsByLabel.set(label, button);
+      button.innerText = label;
+
+      button.addEventListener('click', () => {
+        activeLabelSet[activeLabelSet.has(label) ? 'delete' : 'add'](label);  // toggle
+        applyActiveLabels();
+        // TODO: track in google analytics
+      });
+
+      document.querySelector('#projects-widget .label-buttons').appendChild( button );
+    });
+
+    const applyActiveLabels = () => {
+      // Apply activeLabelSet to DOM
+
+      buttonsByLabel.forEach( (button, label) =>
+        button.classList[ activeLabelSet.has(label) ? 'add' : 'remove' ]('active')
+      );
+
+      if (window.URL) {  // not IE
+        const searchParams = (new URL(document.location)).searchParams
+        searchParams.delete('l');
+        activeLabelSet.forEach( label => searchParams.append('l',label) );
+        history.replaceState(null,null, '?'+searchParams);
+      }
+
+      // Activate only each project bearing ALL active labels (if any)
+      const activeProjectSet = new Set( projects.filter( project =>
+        !activeLabelSet.size || isSuperset(labelSetsByProject.get(project), activeLabelSet)
+      ) );
+      console.log({ activeLabelSet, activeProjectSet });
+      projects.forEach( project =>
+        project.classList[ activeProjectSet.has(project) ? 'add' : 'remove' ]('active')
+      );
+
+      // Show project match count
+      document.querySelector('#projects-widget .label-buttons-label')
+        .textContent = activeLabelSet.size ? activeProjectSet.size : '';
+
+      // Mark .any-active for overall style
+      document.querySelector('#projects-widget .label-buttons-container')
+        .classList[activeLabelSet.size ? 'add' : 'remove']('any-active');
+    }
+
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set#Implementing_basic_set_operations
+    function isSuperset(set, subset) {
+      for (var elem of subset) {
+          if (!set.has(elem)) {
+              return false;
+          }
+      }
+      return true;
+    }
+
+    // apply searchParams 'l' as activeLabelSet labels
+    if (window.URL) {  // not IE
+      (new URL(document.location)).searchParams.getAll('l').forEach(
+        label => console.log("activate", label) || activeLabelSet.add(label)
+      );
+      applyActiveLabels();
+    }
+</script>
