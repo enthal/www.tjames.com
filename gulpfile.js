@@ -5,6 +5,7 @@ const gulpStaticWeb = require('gulp-static-web')
 
 gulpStaticWeb(gulp, {
   postcss: [
+    require('postcss-import'),
     require('precss'),
     require('autoprefixer'),
     require('lost'),

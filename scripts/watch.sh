@@ -2,7 +2,7 @@ gulp rimraf
 
 DEBUG=please \
 nodemon \
- -e js,yml,yaml,html,css \
+ -e js,yml,yaml,html \
  -w index.yml \
  -w content/  \
  -w templates/  \
@@ -10,7 +10,8 @@ nodemon \
  -x gulp template &
 
 nodemon \
- -e js,yml,yaml,html,css \
+ -e css \
+ -w index.css \
  -w style/ \
  -w gulpfile.js \
  -x gulp css &
