@@ -1,12 +1,12 @@
 <header class='my-page-header'>
   <div class='header-width-container'>
     <div class='header-flex-container'>
-      <div>
-        <a href="/"><img id='logo-small' src='/TimothyJames-logo.png' onload="onHeaderLoad(event)"/></a>
+      <div class='hover-grow'>
+        <a href="/"><img class='logo' src='/TimothyJames-logo.png' onload="onHeaderLoad(event)"/></a>
       </div>
       <div>
         <div class='menu-burger'>&#9776;</div>
-        <ul id="header-menu">
+        <ul class="header-menu">
           <% _.each(menuItems, (item)=>{ %>
             <a href="<%- item.url %>"><li><%- item.name %></li></a>
           <% }) %>
@@ -25,7 +25,7 @@
 <script>
   function onHeaderLoad(event) {
     var target = event.target;
-    target.className = 'shown';
+    target.classList.add('shown');
 
     var header = document.querySelector('header.my-page-header');
     var isMarkedScrolled = false;
@@ -45,7 +45,7 @@
     });
 
     var burger = header.querySelector('.menu-burger');
-    var menu = header.querySelector('#header-menu');
+    var menu = header.querySelector('.header-menu');
     burger.addEventListener('click', function(e) {
       e.stopPropagation();
       menu.classList.toggle('show-mobile');

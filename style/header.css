@@ -47,34 +47,38 @@ header.my-page-header {
   }
 
 
-  img#logo-small {
+  .hover-grow {
     transform-origin: top left;
     transition: all 0.5s ease-in;
-
+    transform: scale(1) translateY(0);
+    &:hover {
+      transform: scale(1.1) translateY(-3px);
+      transition: all 0.1s linear;
+    }
+  }
+  img.logo {
+    transform-origin: top left;
+    transition: all 0.5s ease-in;
     @media screen {
       opacity: 0;
       &.shown {
         opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-      &.shown:hover {   /* overridden by header.my-page-header:not(.scrolled), below; TODO fix */
-        transform: scale(1.1) translateY(-3px);
-        transition: all 0.1s linear;
       }
     }
     @media print {
       transform: scale(2.2) translateX(-1em);
     }
   }
-
   &:not(.scrolled) {
     @media screen {
       box-shadow: none;
       transition: box-shadow 0.3s linear;
     }
 
-    img#logo-small {
-      transform: scale(3.35) translateY(25px) translateX(-5px);
+    img.logo {
+      @media screen {
+        transform: scale(3.35) translateY(25px) translateX(-5px);
+      }
       @media screen and (max-width: 617px) {
         transform: scale(3) translateY(25px) translateX(-5px);
       }
@@ -84,14 +88,11 @@ header.my-page-header {
       @media screen and (max-width: 350px) {
         transform: scale(1.85) translateY(25px) translateX(-5px);
       }
-      @media print {
-        transform: scale(2.2) translateX(-1em);
-      }
     }
   }
 
 
-  #header-menu {
+  .header-menu {
     font-family: 'Oxygen', sans-serif;
     letter-spacing: 0.10em;
     color: #CCC;
@@ -122,7 +123,7 @@ header.my-page-header {
 
   @media screen and (max-width: 800px) {
     .menu-burger { display: block; }
-    #header-menu { display: none;
+    .header-menu { display: none;
       &.show-mobile {
         display: block;
         position: fixed;
@@ -137,7 +138,7 @@ header.my-page-header {
     }
   }
   @media screen and (min-width: 800px) {
-    #header-menu { display: block; }
+    .header-menu { display: block; }
     .menu-burger { display: none; }
   }
   .menu-burger {
