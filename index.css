@@ -524,32 +524,6 @@ header.my-page-header {
 }
 
 
-.page-header {   /* TODO: remove */
-  /*position: fixed;*/
-  width: 100%;
-  border-bottom: 1px solid #eee;
-  background-color: #FFF;
-  padding: 0.5em;
-  padding-left: 0.5em;
-
-  img {
-    /*width:  114px;*/
-    /*height:  36px;*/
-    width:  171px;
-    height:  54px;
-  }
-  span {
-    display: inline-block;
-    vertical-align: 70%;
-    padding-left: 2em;
-    color: #777;
-    font-family: 'Oxygen', sans-serif;
-    letter-spacing: 0.15em;
-    font-size: 150%;
-  }
-}
-
-
 .per-medias {
   &[onclick] {
     cursor: pointer;
