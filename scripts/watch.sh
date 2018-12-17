@@ -9,12 +9,7 @@ nodemon \
  -w gulpfile.js \
  -x gulp template &
 
-nodemon \
- -e css \
- -w index.css \
- -w style/ \
- -w gulpfile.js \
- -x gulp css &
+gulp watch &
 
 nodemon \
  -e js,yml,yaml,html,css \
