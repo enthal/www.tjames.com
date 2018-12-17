@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "./scripts/watch.sh",
+    "start": "DEBUG=yes  gulp dev:all",
     "build": "gulp build",
     "upload": "./scripts/upload.sh"
   },
