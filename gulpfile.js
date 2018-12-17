@@ -17,7 +17,13 @@ gulpStaticWeb(gulp, {
 gulp.task('default', sequence('static', ['template', 'postcss']))
 
 gulp.task('template', () =>
-  gulp.src('./templates/*.html')
+  gulp.src('templates/*.html')
     .pipe(temple('./index.yml'))
     .pipe(gulp.dest('out'))
 )
+
+gulp.task('watch:all', ['watch', 'template'], () => {
+  gulp.watch(
+    ['templates/*.html', 'index.yml', 'content/**/*.yml'],
+    ['template'] )
+})
