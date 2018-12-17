@@ -14,7 +14,7 @@ gulpStaticWeb(gulp, {
   ],
 })
 
-gulp.task('default', sequence('static', ['template', 'css']))
+gulp.task('default', sequence('static', ['template', 'postcss']))
 
 gulp.task('template', () =>
   gulp.src('./templates/*.html')
