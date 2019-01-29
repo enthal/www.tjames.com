@@ -8,6 +8,8 @@
           url: /projects/
         - name: LinkedIn
           url: https://www.linkedin.com/in/timjamestim
+        - name: Résumé
+          url: /resume/
         - name: Email
           url: mailto:letsdothis@tjames.com
         - name: 415-305-0247
@@ -24,6 +26,9 @@
   $path: offering/index.html
   toUrl: /
 
+- $t: redirect
+  $path: resume/index.html
+  toUrl: /resume.pdf
 
 - $t: redirect    # TODO automate?
   $path: projects.html
