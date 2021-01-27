@@ -8,7 +8,7 @@
     "autoprefixer": "^9.4.2",
     "gulp": "3.9.1",
     "gulp-sequence": "^1.0.0",
-    "gulp-static-web": "enthal/gulp-static-web#master",
+    "gulp-static-web": "^1.0.0",
     "lost": "^8.3.0",
     "postcss-color-function": "^4.0.1",
     "postcss-import": "^12.0.1",
